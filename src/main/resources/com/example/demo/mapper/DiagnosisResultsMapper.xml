@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        <mapper namespace="com.example.demo.mapper.DiagnosisResultsMapper">
+<resultMap id="diagnosisResultsResultMap" type="com.example.demo.entity.Diagnosis_results">
+<id property="id" column="id"/>
+<result property="name" column="name"/>
+<result property="character_id" column="character_id"/>
+<result property="diagnosed_at" column="diagnosed_at"/>
+</resultMap>
+<select id="findAll" resultMap="diagnosisResultsResultMap"> SELECT id, name, character_id, diagnosed_at FROM diagnosis_results ORDER BY diagnosed_at DESC </select>
+<select id="findById" parameterType="long" resultMap="diagnosisResultsResultMap"> SELECT id, name, character_id, diagnosed_at FROM diagnosis_results WHERE id = #{id} </select>
+<insert id="insert" parameterType="com.example.demo.entity.Diagnosis_results" useGeneratedKeys="true" keyProperty="id"> INSERT INTO diagnosis_results (name, character_id, diagnosed_at) VALUES (#{name}, #{character_id}, #{diagnosed_at}) </insert>
+</mapper>
