@@ -2,6 +2,6 @@ package service;
 
 public class CharacterServiceImpl {
 	
-	//あ
+	//あ777
 
 }
