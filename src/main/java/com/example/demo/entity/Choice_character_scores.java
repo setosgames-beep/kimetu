@@ -1,5 +1,10 @@
 package com.example.demo.entity;
 
-public class Choice_character_scores {
+import lombok.Data;
 
+@Data
+public class Choice_character_scores {
+int choice_id;
+int character_id;
+int score;
 }
