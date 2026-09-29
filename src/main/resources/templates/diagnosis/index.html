@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>キャラクター診断 | TOP</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link rel="stylesheet" th:href="@{css/normalize.css}" href="../../../resources/static/css/normalize.css">
+	<link rel="stylesheet" th:href="@{css/diagnosis/style.css}" href="../../../resources/static/css/diagnosis/style.css">
+	
+</head>
+
+<body>
+
+	<div class="screen">
+		<header>
+			<p class="icon">鬼滅の刃<br>キャラクター診断</p>
+		</header>
+		
+		<main>
+			<div class="hero">
+				<div class="mark"></div>
+			</div>
+			
+			<nav class="link-btn">
+				<section class="col">
+					<a href="#">
+						<span class="title">診断をはじめる</span><br>
+						<span class="arrow">↓</span>
+					</a>
+				</section>
+
+				<section class="col">
+					<a th:href="@{/characters}" href="characters.html">
+						<span class="title">キャラ一覧を見る</span><br>
+						<span class="arrow">↓</span>
+					</a>
+				</section>
+			</nav>
+		</main>
+
+		<footer>
+		
+		
+		</footer>
+	</div>
+	
+</body>
+</html>
