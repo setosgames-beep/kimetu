@@ -13,4 +13,6 @@ public interface CharacterMapper {
  
     /** IDでキャラクターを1件取得 */
     Characters findById(Integer id);
+    
+    
 }

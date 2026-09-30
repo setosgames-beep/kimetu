@@ -1,1 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.example.demo.repository.ChoiceMapper">
+ <select id="findByQuestionId" resultType="com.example.demo.entity.Choices">
+        SELECT id, question_id, choice_text
+        FROM choices
+        WHERE question_id = #{questionId}
+        ORDER BY id
+    </select>
+ 
+    <select id="findById" resultType="com.example.demo.entity.Choices">
+        SELECT id, question_id, choice_text
+        FROM choices
+        WHERE id = #{id}
+    </select>
+ 
+    
+    </mapper>
