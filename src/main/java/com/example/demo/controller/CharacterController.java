@@ -11,8 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entity.Characters;
-
-import service.CharacterService;
+import com.example.demo.service.CharacterService;
 
 @RestController
 @RequestMapping("/api/characters")

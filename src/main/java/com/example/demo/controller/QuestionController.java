@@ -11,8 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entity.Questions;
-
-import service.QuestionService;
+import com.example.demo.service.QuestionService;
 
 @RestController
 @RequestMapping("/api/questions")
