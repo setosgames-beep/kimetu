@@ -10,10 +10,33 @@ SELECT id, name, character_id, diagnosed_at FROM diagnosis_results ORDER BY diag
  SELECT id, name, character_id, diagnosed_at FROM diagnosis_results WHERE id = #{id} 
  </select>
 
-<!--<resultMap id="diagnosisResultsResultMap" type="com.example.demo.entity.Diagnosis_results">-->
-<!--<id property="id" column="id"/>-->
-<!--<result property="name" column="name"/>-->
-<!--<result property="character_id" column="character_id"/>-->
-<!--<result property="diagnosed_at" column="diagnosed_at"/>-->
-<!--</resultMap>-->
+
+    <resultMap id="diagnosisResultsResultMap" type="com.example.demo.entity.DiagnosisResult">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="characterId" column="character_id"/>
+        <result property="diagnosedAt" column="diagnosed_at"/>
+    </resultMap>
+ 
+    <select id="findAll" resultMap="diagnosisResultsResultMap">
+        SELECT id, name, character_id, diagnosed_at
+        FROM diagnosis_results
+        ORDER BY diagnosed_at DESC
+    </select>
+ 
+    <select id="findById" parameterType="long" resultMap="diagnosisResultsResultMap">
+        SELECT id, name, character_id, diagnosed_at
+        FROM diagnosis_results
+        WHERE id = #{id}
+    </select>
+ 
+    <insert id="insert" parameterType="com.example.demo.entity.DiagnosisResult"
+            useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO diagnosis_results (name, character_id, diagnosed_at)
+        VALUES (#{name}, #{characterId}, #{diagnosedAt})
+    </insert>
+ 
+    <delete id="deleteById" parameterType="long">
+        DELETE FROM diagnosis_results WHERE id = #{id}
+    </delete>
 </mapper>

@@ -14,6 +14,42 @@
         FROM characters
         WHERE id = #{id}
     </select>
+ <resultMap id="characterResultMap" type="com.example.demo.entity.Character">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="description" column="description"/>
+        <result property="imagePath" column="image_path"/>
+        <result property="attribute" column="attribute"/>
+    </resultMap>
  
+    <select id="findAll" resultMap="characterResultMap">
+        SELECT id, name, description, image_path, attribute
+        FROM characters
+        ORDER BY id
+    </select>
+ 
+    <select id="findById" parameterType="int" resultMap="characterResultMap">
+        SELECT id, name, description, image_path, attribute
+        FROM characters
+        WHERE id = #{id}
+    </select>
+ 
+    <insert id="insert" parameterType="com.example.demo.entity.Character" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO characters (name, description, image_path, attribute)
+        VALUES (#{name}, #{description}, #{imagePath}, #{attribute})
+    </insert>
+ 
+    <update id="update" parameterType="com.example.demo.entity.Character">
+        UPDATE characters
+        SET name = #{name},
+            description = #{description},
+            image_path = #{imagePath},
+            attribute = #{attribute}
+        WHERE id = #{id}
+    </update>
+ 
+    <delete id="deleteById" parameterType="int">
+        DELETE FROM characters WHERE id = #{id}
+    </delete>
     
     </mapper>

@@ -15,6 +15,39 @@
         FROM choices
         WHERE id = #{id}
     </select>
+  <resultMap id="choiceResultMap" type="com.example.demo.entity.Choice">
+        <id property="id" column="id"/>
+        <result property="questionId" column="question_id"/>
+        <result property="choiceText" column="choice_text"/>
+    </resultMap>
  
+    <select id="findByQuestionId" parameterType="int" resultMap="choiceResultMap">
+        SELECT id, question_id, choice_text
+        FROM choices
+        WHERE question_id = #{questionId}
+        ORDER BY id
+    </select>
+ 
+    <select id="findById" parameterType="int" resultMap="choiceResultMap">
+        SELECT id, question_id, choice_text
+        FROM choices
+        WHERE id = #{id}
+    </select>
+ 
+    <insert id="insert" parameterType="com.example.demo.entity.Choice" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO choices (question_id, choice_text)
+        VALUES (#{questionId}, #{choiceText})
+    </insert>
+ 
+    <update id="update" parameterType="com.example.demo.entity.Choice">
+        UPDATE choices
+        SET question_id = #{questionId},
+            choice_text = #{choiceText}
+        WHERE id = #{id}
+    </update>
+ 
+    <delete id="deleteById" parameterType="int">
+        DELETE FROM choices WHERE id = #{id}
+    </delete>
     
     </mapper>

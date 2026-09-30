@@ -4,15 +4,22 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.example.demo.entity.Characters;
-
 @Mapper
 public interface CharacterMapper {
 	/** 全キャラクターを取得 */
-    List<Characters> findAll();
- 
+	List<Character> findAll();
+	 
     /** IDでキャラクターを1件取得 */
-    Characters findById(Integer id);
+    Character findById(Integer id);
+ 
+    /** キャラクターを新規登録 */
+    int insert(Character character);
+ 
+    /** キャラクター情報を更新 */
+    int update(Character character);
+ 
+    /** IDでキャラクターを削除 */
+    int deleteById(Integer id);
     
     
 }
