@@ -1,7 +1,12 @@
 package com.example.demo.service;
 
-public interface QuestionService {
-	
-	
+import java.util.List;
 
+import com.example.demo.entity.Questions;
+
+public interface QuestionService {
+	List<Questions> getAllQuestions();
+	Questions getQuestionById(int id);
+	void saveQuestion(Questions question);
 }
+
