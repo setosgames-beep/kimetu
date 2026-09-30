@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+/*ページ全体、cssリセット用ファイル*/
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background: #fff;
+	/*font-family: "Hiragino Mincho ProN","Yu Mincho",serif;*/
+	font-family: -apple-system, BlinkMacSysytemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Arial, "メイリオ", Meiryo, sans-serif;
+	color: #1c1a1e;
+	display: flex;
+	padding: 32px 12px;
+}
+
+a {
+	text-decoration: none;
+}
