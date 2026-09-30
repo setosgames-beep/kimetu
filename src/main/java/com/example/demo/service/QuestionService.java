@@ -9,3 +9,4 @@ public interface QuestionService {
 	Questions getQuestionById(int id);
 	void saveQuestion(Questions question);
 }
+

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        <mapper namespace="com.example.demo.repository.ChoiceCharacterScoreMapper">
+
+<select id="findByChoiceId" resultType="com.example.demo.entity.Choice_character_scores">
+ SELECT choice_id, character_id, score FROM choice_character_scores WHERE choice_id = #{choiceId} 
+ </select>
+<select id="findByChoiceIds" resultType="com.example.demo.entity.Choice_character_scores">
+SELECT choice_id, character_id, score FROM choice_character_scores WHERE choice_id IN
+<foreach item="choiceId" collection="choiceIds" open="(" separator="," close=")"> #{choiceId} </foreach>
+</select>
+ <resultMap id="scoreResultMap" type="com.example.demo.entity.ChoiceCharacterScore">
+        <id property="choiceId" column="choice_id"/>
+        <id property="characterId" column="character_id"/>
+        <result property="score" column="score"/>
+    </resultMap>
+ 
+    <select id="findByChoiceId" parameterType="int" resultMap="scoreResultMap">
+        SELECT choice_id, character_id, score
+        FROM choice_character_scores
+        WHERE choice_id = #{choiceId}
+    </select>
+ 
+    <select id="findByChoiceIds" resultMap="scoreResultMap">
+        SELECT choice_id, character_id, score
+        FROM choice_character_scores
+        WHERE choice_id IN
+        <foreach item="choiceId" collection="choiceIds" open="(" separator="," close=")">
+            #{choiceId}
+        </foreach>
+    </select>
+ 
+    <insert id="insert" parameterType="com.example.demo.entity.ChoiceCharacterScore">
+        INSERT INTO choice_character_scores (choice_id, character_id, score)
+        VALUES (#{choiceId}, #{characterId}, #{score})
+    </insert>
+ 
+    <update id="update" parameterType="com.example.demo.entity.ChoiceCharacterScore">
+        UPDATE choice_character_scores
+        SET score = #{score}
+        WHERE choice_id = #{choiceId} AND character_id = #{characterId}
+    </update>
+ 
+    <delete id="delete">
+        DELETE FROM choice_character_scores
+        WHERE choice_id = #{choiceId} AND character_id = #{characterId}
+    </delete>
+</mapper>

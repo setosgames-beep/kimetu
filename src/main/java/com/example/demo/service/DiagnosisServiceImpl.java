@@ -57,6 +57,7 @@ public class DiagnosisServiceImpl implements DiagnosisService {
 	}
 
 	// ===== 結果CRUD（Repositoryができてから作る） =====
+
 	@Override
 	public void insert(Diagnosis_results result) {
 		resultMapper.insert(result);
