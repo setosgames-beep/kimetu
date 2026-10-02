@@ -4,9 +4,7 @@ import lombok.Data;
 
 @Data
 public class Questions {
-
-	int id;
-	String body;
-	int sort_order;
-	
+    private int id;
+    private String body;
+    
 }
