@@ -14,6 +14,6 @@ public interface DiagnosisService {
     void insert(Diagnosis_results result);
 
     // Read  ：診断結果の一覧、1件の詳細を取得する
-    List<Diagnosis_results> findAll();
-    Diagnosis_results findById(Long id);
+    List<Diagnosis_results> findByUserId(int userId);
+    
 }

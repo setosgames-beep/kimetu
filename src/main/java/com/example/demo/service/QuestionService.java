@@ -6,7 +6,5 @@ import com.example.demo.entity.Questions;
 
 public interface QuestionService {
 	List<Questions> getAllQuestions();
-	Questions getQuestionById(int id);
-	void saveQuestion(Questions question);
+	
 }
-

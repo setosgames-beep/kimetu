@@ -2,17 +2,18 @@ package com.example.demo.service.impl;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.Characters;
 import com.example.demo.repository.CharacterMapper;
 import com.example.demo.service.CharacterService;
 
-@Service
-public class CharacterServiceImpl implements CharacterService {
+import lombok.RequiredArgsConstructor;
 
-	@Autowired
+@Service
+@RequiredArgsConstructor
+public class CharacterServiceImpl implements CharacterService {
+	
 	private CharacterMapper characterMapper;
 
 	@Override

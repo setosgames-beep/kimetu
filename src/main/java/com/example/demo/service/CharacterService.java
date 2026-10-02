@@ -7,5 +7,5 @@ import com.example.demo.entity.Characters;
 public interface CharacterService {
 	List<Characters> getAllCharacters();
 	Characters getCharacterById(int id);
-	void saveCharacter(Characters character);
+	
 }
