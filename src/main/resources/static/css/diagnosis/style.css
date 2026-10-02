@@ -28,9 +28,23 @@ body{
 }
 
 header{
+	width: 100%;
 	padding: 28px 24px 20px;
 	border-bottom: 1px solid var(--line);
 	position:relative;
+	
+}
+
+header .titlelogo {
+	width: 50px;
+}
+
+header .title {
+	position: absolute;
+	top: 12px;
+	right: 0;
+	left: 0;
+	margin: auto;
 }
 
 .icon{
@@ -180,24 +194,25 @@ main{
  	opacity:.7;
 }
 
-.footer {
-	margin: 0 auto;
-}
-
-.footer img {
-	width: 50px;
-}
-
 .placeholder-text + .placeholder-text{margin-top:6px;}
 /*-----characterページ-----まで*/
 
 footer{
+	width: 100%;
 	padding: 16px 20px 28px;
 	font-family: "Hiragino Sans","Yu Gothic",sans-serif;
 	font-size: 11px;
 	color: #8a8378;
 	text-align: center;
 	border-top: 1px solid var(--line);
+}
+
+.footer {
+	margin: 0 auto;
+}
+
+.footer img {
+	width: 50px;
 }
 
 @media screen and (min-width:768px) {
