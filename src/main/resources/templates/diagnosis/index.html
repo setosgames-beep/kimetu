@@ -5,14 +5,14 @@
 	<title>キャラクター診断 | TOP</title>
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+	
 	<link rel="stylesheet" th:href="@{css/normalize.css}" href="../../../resources/static/css/normalize.css">
 	<link rel="stylesheet" th:href="@{css/diagnosis/style.css}" href="../../../resources/static/css/diagnosis/style.css">
 	
 </head>
 
 <body>
-
+	
 	<div class="screen">
 		<header>
 			<p class="icon">鬼滅の刃<br>キャラクター診断</p>
@@ -20,7 +20,8 @@
 		
 		<main>
 			<div class="hero">
-				<div class="mark"></div>
+				<!--<div class="mark"></div>-->
+				<img src="../../static/images/diagnosis/title.png">
 			</div>
 			
 			<nav class="link-btn">
@@ -30,7 +31,7 @@
 						<span class="arrow">↓</span>
 					</a>
 				</section>
-
+				
 				<section class="col">
 					<a th:href="@{/characters}" href="characters.html">
 						<span class="title">キャラ一覧を見る</span><br>
@@ -39,10 +40,11 @@
 				</section>
 			</nav>
 		</main>
-
-		<footer>
 		
-		
+		<footer class="footer">
+			<a th:href="@{/}" href="index.html">
+				<img src="../../static/images/logo.png">
+			</a>
 		</footer>
 	</div>
 	

@@ -79,6 +79,10 @@ main{
 	line-height: 1.8;
 }
 
+.hero img {
+	width: 600px;
+}
+
 .col {
 	text-align: center;
 	margin: 0 auto 22px;
@@ -174,6 +178,14 @@ main{
  	background:repeating-linear-gradient(90deg,#e5e0d5 0,#e5e0d5 90%,transparent 90%,transparent 100%);
  	border-radius:1px;
  	opacity:.7;
+}
+
+.footer {
+	margin: 0 auto;
+}
+
+.footer img {
+	width: 50px;
 }
 
 .placeholder-text + .placeholder-text{margin-top:6px;}
