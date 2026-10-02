@@ -8,5 +8,5 @@ public class Characters {
 	String name;
 	String description;
 	String image_path;
-
+	
 }
