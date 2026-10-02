@@ -5,15 +5,15 @@
 	
 	<!-- 全キャラクターの取得 -->
      <select id="findAll" resultType="com.example.demo.entity.Characters">
-         SELECT id, name, description, image_path AS imagePath
+         SELECT id, name, description, description_results, character_image_path, result_image_path
          FROM characters
     </select>
 	
     <!-- IDでキャラクターを1件取得（診断結果画面にキャラ情報を貼り付けるために使用） -->
      <select id="findById" resultType="com.example.demo.entity.Characters">
-         SELECT id, name, description, image_path AS imagePath
-         FROM characters
-         WHERE id = #{id}
+         SELECT id, name, description, description_results, character_image_path, result_image_path 
+    FROM characters 
+    WHERE id = #{id}
     </select>
     
 </mapper>
