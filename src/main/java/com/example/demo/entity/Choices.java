@@ -4,13 +4,13 @@ import lombok.Data;
 
 @Data
 public class Choices {
-
 	int id;
 	int question_id;
 	int character_id;
 	String body;
 	
 }
+
 //public Choice() {
 //}
 //

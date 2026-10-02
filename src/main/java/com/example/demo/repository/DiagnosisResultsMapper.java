@@ -8,8 +8,8 @@ import com.example.demo.entity.Diagnosis_results;
 
 @Mapper
 public interface DiagnosisResultsMapper {
-//	  /** 全ユーザーの診断結果を取得 */
-//    List<Diagnosis_results> findAll();
+	  /** 全ユーザーの診断結果を取得 */
+    List<Diagnosis_results> findAll();
  
     /** 【超重要】特定のユーザーID(userId)の過去の診断履歴を、新しい順でまとめて取得 */
     List<Diagnosis_results> findByUserIdOrderByDiagnosedAtDesc(int userId);

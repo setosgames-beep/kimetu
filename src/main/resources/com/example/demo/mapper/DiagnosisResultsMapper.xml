@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
- <mapper namespace="com.example.demo.repository.DiagnosisResultsMapper">
-   <!-- 特定のユーザーが過去にどのキャラと診断されたかの履歴をまとめて取得（履歴表示用） -->
-<select id="findByUserIdOrderByDiagnosedAtDesc"  resultType="com.example.demo.entity.Diagnosis_results">
-SELECT id, user_id AS userId, character_id AS characterId 
-    FROM diagnosis_results 
-    WHERE user_id = #{userId}
- </select>
- <!-- 確定した診断結果をデータベースへ新しく記録する（記録用） -->
-  <insert id="insert" parameterType="com.example.demo.entity.Diagnosis_results">
-        INSERT INTO diagnosis_results (user_id, character_id)
-        VALUES (#{userId}, #{characterId})
- </insert>
+	"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.repository.DiagnosisResultsMapper">
+	
+	<!-- 全診断結果の取得 -->
+	<select id="findAll"  resultType="com.example.demo.entity.Diagnosis_results">
+		SELECT id, user_id AS userId, character_id AS characterId
+		FROM diagnosis_results
+	</select>
+	
+	<!-- 特定のユーザーが過去にどのキャラと診断されたかの履歴をまとめて取得（履歴表示用） -->
+	<select id="findByUserIdOrderByDiagnosedAtDesc"  resultType="com.example.demo.entity.Diagnosis_results">
+		SELECT id, user_id AS userId, character_id AS characterId 
+		FROM diagnosis_results 
+		WHERE user_id = #{userId}
+	</select>
+	
+	<!-- 確定した診断結果をデータベースへ新しく記録する（記録用） -->
+	<insert id="insert" parameterType="com.example.demo.entity.Diagnosis_results">
+		INSERT INTO diagnosis_results (user_id, character_id)
+		VALUES (#{userId}, #{characterId})
+	</insert>
+	
 </mapper>
