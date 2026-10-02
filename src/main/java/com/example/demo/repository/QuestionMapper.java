@@ -11,8 +11,8 @@ public interface QuestionMapper {
 	/** 全設問を表示順で取得 */
     List<Questions> findAllOrderByDisplayOrder();
  
-//    /** IDで設問を1件取得 */
-//    Questions findById(Integer id);
+    /** IDで設問を1件取得 */
+    Questions findById(Integer id);
 // 
 //    /** 設問を新規登録 */
 //    int insert(Questions question);
