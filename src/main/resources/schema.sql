@@ -31,7 +31,7 @@ CREATE TABLE characters (
      description_results VARCHAR(100) NOT NULL,
      
     -- 【カラム】キャラの画像の場所・URL（string/文字列）
-    character_image_path VARCHAR(255) NOT NULL
+    character_image_path VARCHAR(255) NOT NULL,
     
     -- 【追加】結果用キャラ画像
     result_image_path VARCHAR(255) NOT NULL 

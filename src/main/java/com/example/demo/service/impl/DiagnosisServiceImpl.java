@@ -38,8 +38,11 @@ public class DiagnosisServiceImpl implements DiagnosisService {
 		// 選択肢ID → キャラクターID の対応表
 		Map<Integer, Integer> choiceToCharacter = new HashMap<>();
 		for (Questions question : questionMapper.findAllOrderByDisplayOrder()) {
-			for (Choices choice : choiceMapper.findByQuestionId(question.getId())) {
-				choiceToCharacter.put(choice.getId(), choice.getCharacter_id());
+			int questionId = Math.toIntExact(question.getId());
+			for (Choices choice : choiceMapper.findByQuestionId(questionId)) {
+				choiceToCharacter.put(
+						Math.toIntExact(choice.getId()),
+						Math.toIntExact(choice.getCharacter_id()));
 			}
 		}
 
