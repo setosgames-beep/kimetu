@@ -5,8 +5,11 @@
 	<title>キャラクター診断 | TOP</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
+	<!-- 共通のリセットCSS -->
 	<link rel="stylesheet" th:href="@{/css/normalize.css}" href="../../static/css/normalize.css">
-	<link rel="stylesheet" th:href="@{/css/test/test.css}" href="../../static/css/test/test.css">
+
+	<!-- TOPページ専用のCSS（ファイル名は static/css/test/ にある名前に合わせる） -->
+	<link rel="stylesheet" th:href="@{/css/test/testIndex.css}" href="../../static/css/test/testIndex.css">
 </head>
 
 <body>
@@ -44,5 +47,10 @@
 		</nav>
 
 	</main>
+	<!-- 右端に吊るす伊之助（飾り）。クリックの邪魔にならないよう CSS で pointer-events を切ってある -->
+	<img class="inosuke"
+	     th:src="@{/images/diagnosis/test/inosuke_cut.png}"
+	     src="../../static/images/diagnosis/test/inosuke_cut.png"
+	     alt="伊之助">
 </body>
 </html>
