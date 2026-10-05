@@ -15,14 +15,14 @@ body{
 	color: var(--ink);
 	display: flex;
 	justify-content: center;
-	padding: 32px 12px;
+	padding: 30px 12px;
 }
 
 .screen{
 	width: 800px;
 	background: var(--paper);
 	/*min-height: 760px;*/
-	box-shadow: 0 20px 60px rgba(0,0,0,.4);
+	box-shadow: 0 100px 60px rgba(0,0,0,.4);
 	display: flex;
 	flex-direction: column;
 }

@@ -1,0 +1,86 @@
+html, body {
+	width: 100%;
+	margin: 0;
+}
+
+body {
+	display: block;                /* 他のCSSでflexにされてても打ち消す */
+	background-image: url("../../images/diagnosis/test/back1.jpg");
+	background-size: auto 100%;
+	background-repeat: repeat-x;
+	background-position: center top;
+	min-height: 100vh;
+}
+
+.screen {
+	width: 100%;                   /* 画面幅いっぱいに広げる */
+	margin: 0 auto;
+	min-height: 100vh;
+	box-sizing: border-box;
+	padding: 60px 12px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;           /* 中身を左右中央に */
+	justify-content: center;       /* 中身を上下中央に */
+	gap: 24px;
+}
+
+/* ロゴ */
+.logo {
+	margin: 0 auto;                /* 左右中央 */
+	width: min(1000vw, 1200px);
+	text-align: center;
+}
+.logo img {
+	display: block;
+	width: 100%;
+	height: auto;
+	margin: 0 auto;
+}
+
+/* 3体を横に並べる */
+.link-btn {
+	display: flex;
+	justify-content: center;
+	gap: 12px;
+	width: 100%;
+}
+.col {
+	width: min(28vw, 180px);
+}
+
+.char-link {
+	position: relative;
+	display: block;
+	width: 100%;
+	container-type: inline-size;
+	transition: transform .15s;
+	-webkit-tap-highlight-color: transparent;
+	text-decoration: none;
+}
+.char-link:hover  { transform: scale(1.06); }
+.char-link:active { transform: scale(0.96); }
+
+.char-link img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.char-link .label {
+	position: absolute;
+	top: 6%;
+	left: 6%;
+	width: 88%;
+	height: 40%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	font-size: 13cqw;
+	font-weight: 700;
+	line-height: 1.2;
+	color: #222;
+	transform: rotate(-1deg);
+	pointer-events: none;
+}
