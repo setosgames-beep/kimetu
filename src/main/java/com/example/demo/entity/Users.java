@@ -1,10 +1,13 @@
 package com.example.demo.entity;
 
+import java.time.LocalDateTime;
+
 import lombok.Data;
 
 @Data
 public class Users {
-	private int id;
-	private String name;
+	private long id;
+	private String username;
+	private LocalDateTime createdAt;
 	
 }

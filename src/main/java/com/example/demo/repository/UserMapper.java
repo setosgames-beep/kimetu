@@ -12,7 +12,7 @@ public interface UserMapper {
     List<Users> findAll();
  
     /** IDでユーザーを1件取得（マイページ表示やログインチェック用） */
-    Users findById(int id);
+    Users findById(long id);
  
     /** ユーザーを新規登録（ユーザーの作成） */
     int insert(Users user);
@@ -21,5 +21,5 @@ public interface UserMapper {
     int update(Users user);
  
     /** IDでユーザーを削除（退会処理：紐づく診断結果も自動で消えます） */
-    int deleteById(int id);
+    int deleteById(long id);
 }

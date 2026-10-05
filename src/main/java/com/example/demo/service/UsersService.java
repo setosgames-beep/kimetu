@@ -9,7 +9,7 @@ public interface UsersService {
 	
 	List<Users> getAllUsers();
 
-    Users getUserById(int id);
+    Users getUserById(long id);
 
     void saveUser(Users user);
 
