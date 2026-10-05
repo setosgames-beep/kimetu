@@ -1,5 +1,6 @@
 package com.example.demo.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -7,44 +8,52 @@ import java.util.TreeMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.entity.Choices;
 import com.example.demo.entity.Diagnosis_results;
-import com.example.demo.repository.ChoiceCharacterScoreMapper;
-import com.example.demo.repository.DiagnosisResultMapper;
+import com.example.demo.entity.Questions;
+import com.example.demo.repository.ChoiceMapper;
+import com.example.demo.repository.DiagnosisResultsMapper;
+import com.example.demo.repository.QuestionMapper;
 import com.example.demo.service.DiagnosisService;
 
 @Service
 public class DiagnosisServiceImpl implements DiagnosisService {
 
 	@Autowired
-	private ChoiceCharacterScoreMapper scoreMapper;
+	private QuestionMapper questionMapper;
 
 	@Autowired
-	private DiagnosisResultMapper resultMapper;
+	private ChoiceMapper choiceMapper;
 
-	// ===== 診断ロジック =====
+	@Autowired
+	private DiagnosisResultsMapper resultMapper;
+
 	@Override
 	public int diagnose(List<Integer> choiceIds) {
 
-		// 回答がない場合はエラーにする
 		if (choiceIds == null || choiceIds.isEmpty()) {
 			throw new IllegalArgumentException("回答がありません");
 		}
 
-		// キャラクターIDごとのスコア合算
-		// TreeMapはキー（キャラクターID）が小さい順に並ぶ
-		Map<Integer, Integer> scores = new TreeMap<>();
-
-		// 各choiceIdについて、対応するキャラクター＆スコアを取得
-		for (int choiceId : choiceIds) {
-			// choice_character_scores テーブルから
-			// この選択肢に紐づくキャラクターとスコアを取得
-			// 例：choiceId=5 → キャラ1に+2点、キャラ2に+1点...
-			// ※ scoreMapper.findByChoiceId(choiceId) を実装後に可能
+		// 選択肢ID → キャラクターID の対応表
+		Map<Integer, Integer> choiceToCharacter = new HashMap<>();
+		for (Questions question : questionMapper.findAllOrderByDisplayOrder()) {
+			for (Choices choice : choiceMapper.findByQuestionId(question.getId())) {
+				choiceToCharacter.put(choice.getId(), choice.getCharacter_id());
+			}
 		}
 
-		// 一番高いスコアのキャラクターを探す
-		// 小さいIDから順に見て「より大きい」ときだけ更新するので、
-		// 同点なら小さいIDのキャラクターが残る
+		// キャラクターIDごとに1点ずつ加算（TreeMap：IDの小さい順）
+		Map<Integer, Integer> scores = new TreeMap<>();
+		for (int choiceId : choiceIds) {
+			Integer characterId = choiceToCharacter.get(choiceId);
+			if (characterId == null) {
+				throw new IllegalArgumentException("存在しない選択肢です：" + choiceId);
+			}
+			scores.put(characterId, scores.getOrDefault(characterId, 0) + 1);
+		}
+
+		// 最高点のキャラクター（同点なら小さいID）
 		int resultId = 0;
 		int maxScore = 0;
 		for (Map.Entry<Integer, Integer> entry : scores.entrySet()) {
@@ -53,11 +62,8 @@ public class DiagnosisServiceImpl implements DiagnosisService {
 				resultId = entry.getKey();
 			}
 		}
-
 		return resultId;
 	}
-
-	// ===== 結果CRUD（Repositoryができてから作る） =====
 
 	@Override
 	public void insert(Diagnosis_results result) {
@@ -65,12 +71,7 @@ public class DiagnosisServiceImpl implements DiagnosisService {
 	}
 
 	@Override
-	public List<Diagnosis_results> findAll() {
-		return resultMapper.findAll();
-	}
-
-	@Override
-	public Diagnosis_results findById(Long id) {
-		return resultMapper.findById(id);
+	public List<Diagnosis_results> findByUserId(int userId) {
+		return resultMapper.findByUserIdOrderByDiagnosedAtDesc(userId);
 	}
 }
