@@ -6,14 +6,12 @@ import com.example.demo.entity.Diagnosis_results;
 
 public interface DiagnosisService {
 
-    // 診断ロジック：回答に紐づくキャラクターIDのリストから、結果のキャラクターIDを返す
-    int diagnose(List<Integer> characterIds);
+	// 診断ロジック：回答（選択肢ID）のリストから、結果のキャラクターIDを返す
+	int diagnose(List<Integer> choiceIds);
 
-    // 結果CRUD
-    // Create：診断結果を登録する
-    void insert(Diagnosis_results result);
+	// 診断結果を登録する
+	void insert(Diagnosis_results result);
 
-    // Read  ：診断結果の一覧、1件の詳細を取得する
-    List<Diagnosis_results> findAll();
-    Diagnosis_results findById(Long id);
+	// ユーザーの診断履歴を新しい順で取得する
+	List<Diagnosis_results> findByUserId(int userId);
 }

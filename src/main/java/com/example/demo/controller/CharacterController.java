@@ -5,8 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,11 +28,5 @@ public class CharacterController {
 	@GetMapping("/{id}")
 	public Characters getCharacterById(@PathVariable int id) {
 		return characterService.getCharacterById(id);
-	}
-	
-	// POST /api/characters → 新規登録
-	@PostMapping
-	public void createCharacter(@RequestBody Characters character) {
-		characterService.saveCharacter(character);
 	}
 }
