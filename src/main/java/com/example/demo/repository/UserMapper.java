@@ -2,22 +2,23 @@ package com.example.demo.repository;
 
 import java.util.List;
 
-import org.apache.catalina.User;
 import org.apache.ibatis.annotations.Mapper;
+
+import com.example.demo.entity.Users;
 
 @Mapper
 public interface UserMapper {
 	 /** 全ユーザーを取得（管理画面用など） */
-    List<User> findAll();
+    List<Users> findAll();
  
     /** IDでユーザーを1件取得（マイページ表示やログインチェック用） */
-    User findById(int id);
+    Users findById(int id);
  
     /** ユーザーを新規登録（ユーザーの作成） */
-    int insert(User user);
+    int insert(Users user);
  
     /** ユーザー情報の更新（名前の変更など） */
-    int update(User user);
+    int update(Users user);
  
     /** IDでユーザーを削除（退会処理：紐づく診断結果も自動で消えます） */
     int deleteById(int id);
