@@ -13,12 +13,13 @@
 </head>
 
 <body>
+	
 	<main class="screen">
 
 		<h1 class="logo">
-	<img th:src="@{/images/diagnosis/title.png}"
-	     src="../../static/images/diagnosis/title.png" alt="鬼滅の刃 キャラクター診断">
-</h1>
+			<img th:src="@{/images/diagnosis/title.png}"
+			     src="../../static/images/diagnosis/title.png" alt="鬼滅の刃 キャラクター診断">
+		</h1>
 
 		<nav class="link-btn">
 			<section class="col">
@@ -30,7 +31,7 @@
 			</section>
 
 			<section class="col">
-				<a class="char-link" th:href="@{/characters}" href="#">
+				<a class="char-link" th:href="@{/characters}" href="characters.html">
 					<img th:src="@{/images/diagnosis/test/nezuko.png}"
 					     src="../../static/images/diagnosis/test/nezuko.png" alt="禰豆子">
 					<span class="label">キャラ一覧<br>を見る</span>
@@ -52,5 +53,6 @@
 	     th:src="@{/images/diagnosis/test/inosuke_cut.png}"
 	     src="../../static/images/diagnosis/test/inosuke_cut.png"
 	     alt="伊之助">
+
 </body>
 </html>
