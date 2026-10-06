@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.repository.DiagnosisResultsMapper">
-	
+
 	<!-- 特定ユーザーの診断履歴を新しい順で取得 -->
 	<select id="findByUserIdOrderByDiagnosedAtDesc" resultType="com.example.demo.entity.Diagnosis_results">
 		SELECT
@@ -10,14 +10,14 @@
 		characters_id AS characterId,
 		diagnosed_at AS diagnosedAt
 		FROM diagnosis_results
-		WHERE user_id = #{userId}
+		WHERE users_id = #{userId}
 		ORDER BY diagnosed_at DESC
 	</select>
-	
+
 	<!-- 診断結果を保存 -->
 	<insert id="insert" parameterType="com.example.demo.entity.Diagnosis_results">
 		INSERT INTO diagnosis_results (users_id, characters_id)
 		VALUES (#{userId}, #{characterId})
 	</insert>
-	
+
 </mapper>
