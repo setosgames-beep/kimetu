@@ -86,9 +86,43 @@ body.page-characters .main-column {
 	box-shadow: none;
 }
 
-/* カードを少し白くして、背景の上でも読みやすくする */
 body.page-characters .card {
-	background: rgba(255, 255, 255, 0.85);
+	background: rgba(255, 253, 247, 0.92);
+	border: 1px solid #1c1c1c;
+	outline: 1px solid #6b2d2d;
+	outline-offset: -8px;
+}
+
+body.page-characters .card img {
+	mix-blend-mode: multiply;
+
+}
+
+/* ------------------------------------------------
+   6. カード内の文字デザイン(大正ロマン風)
+   ------------------------------------------------ */
+
+/* キャラクターの名前(HTMLの <p class="name"> に合わせた指定) */
+body.page-characters .card .name {
+	font-family: "Zen Antique", serif;   /* 大正時代っぽい古風な明朝体 */
+	font-size: 28px;                     /* 文字の大きさ */
+	letter-spacing: 0.08em;              /* 文字の間隔を少し広げて上品に */
+	color: #1c1c1c;                      /* 墨色 */
+	border-left: 6px solid rgb(255, 0, 0);      /* 左にのライン */
+	padding-left: 12px;                  /* ラインと文字の間の余白 */
+}
+
+/* キャラクターの説明文(HTMLの <div class="desc"> に合わせた指定) */
+body.page-characters .card .desc {
+	font-family: "Shippori Mincho", serif; /* 読みやすい明朝体 */
+	color: #3a3a3a;                        /* 濃いめのグレー */
+	line-height: 1.9;                      /* 行の間隔を広げて読みやすく */
+}
+
+/* style.css が span に直接色やフォントを指定していても負けないようにする */
+body.page-characters .card .desc span {
+	font-family: inherit;   /* 親(.desc)のフォントをそのまま使う */
+	color: inherit;         /* 親の色をそのまま使う */
 }
 /* ============================================
    ヘッダー・フッター共通の「帯」デザイン

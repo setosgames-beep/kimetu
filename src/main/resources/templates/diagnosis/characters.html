@@ -4,13 +4,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>キャラクター診断 | キャラクター一覧</title>
 	
+	<!-- ===== Google Fonts(キャラクター一覧のフォント) ===== -->
+	<!-- 外部サーバーへの接続を先に準備して、表示を速くする -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<!-- 使うフォント:名前=Zen Antique / 説明文=Shippori Mincho -->
+	<link href="https://fonts.googleapis.com/css2?family=Zen+Antique&family=Shippori+Mincho:wght@400;600&display=swap" rel="stylesheet">
+	
 	<link rel="stylesheet" th:href="@{css/normalize.css}" href="../../../resources/static/css/normalize.css">
 	<link rel="stylesheet" th:href="@{css/diagnosis/style.css}" href="../../../resources/static/css/diagnosis/style.css">
 	
 	<!-- このページ専用のCSS（必ず style.css より後ろに書く＝後勝ちで上書きできる） -->
 	<link rel="stylesheet" th:href="@{/css/test/testcharacters.css}" href="../../static/css/test/testcharacters.css">
 </head>
-<body>
 	
 	<!-- page-characters を付けると、背景CSSがこのページだけに効く -->
 	<body class="page-characters">
@@ -39,7 +45,7 @@
 		<footer class="footer">
 			<a class="top-link" th:href="@{/}" href="#">TOP</a>
 			<a th:href="@{/}" href="index.html">
-				<img src="../../static/images/logo.png" th:src="@{images/logo.png}"　atl="TOPへ">
+<img src="../../static/images/logo.png" th:src="@{images/logo.png}" alt="TOPへ">
 			</a>
 			<p class="copyright"><small>&copy;Copyright 2026 304_メタモン</small></p>
 		</footer>
