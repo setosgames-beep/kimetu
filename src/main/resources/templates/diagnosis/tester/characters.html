@@ -9,28 +9,12 @@
 	
 </head>
 <body>
-	<head>
-		<meta charset="UTF-8">
-		<!-- スマホ表示用：画面幅に合わせる -->
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>キャラクター診断 | キャラクター一覧</title>
-
-		<!-- 共通のリセットCSS -->
-		<link rel="stylesheet" th:href="@{/css/normalize.css}" href="../../static/css/normalize.css">
-
-		<!-- 診断ページ共通のCSS -->
-		<link rel="stylesheet" th:href="@{/css/diagnosis/style.css}" href="../../static/css/diagnosis/style.css">
-
-		<!-- このページ専用のCSS（必ず style.css より後ろに書く＝後勝ちで上書きできる） -->
-		<link rel="stylesheet" th:href="@{/css/test/testcharacters.css}" href="../../static/css/test/testcharacters.css">
-	</head>
-
-	<!-- page-characters を付けると、背景CSSがこのページだけに効く -->
-	<body class="page-characters">
-	<body class="page-characters">
-	<div class="screen">
-		<header>
-			<img class="titlelogo" src="../../static/images/diagnosis/title.png" th:src="@{images/diagnosis/title.png}">
+	
+	<div class="screen nav">
+		<header　class="nav-com">
+			<a href="index.html" th:href="@{/}">
+				<img class="title-logo" src="../../static/images/diagnosis/title.png" th:src="@{images/diagnosis/title.png}">
+			</a>
 			<h1 class="title">キャラクター一覧</h1>
 		</header>
 		
@@ -49,9 +33,7 @@
 			
 		</main>
 		
-		<!-- フッター：画像ではなく文字の「TOP」リンクにする -->
 		<footer class="footer">
-			<a class="top-link" th:href="@{/}" href="#">TOP</a>
 			<a th:href="@{/}" href="index.html">
 				<img src="../../static/images/logo.png" th:src="@{images/logo.png}"　atl="TOPへ">
 			</a>

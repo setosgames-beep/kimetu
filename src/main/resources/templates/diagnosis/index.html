@@ -3,47 +3,54 @@
 <head>
 	<meta charset="UTF-8">
 	<title>キャラクター診断 | TOP</title>
-	
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	
-	<link rel="stylesheet" th:href="@{css/normalize.css}" href="../../../resources/static/css/normalize.css">
-	<link rel="stylesheet" th:href="@{css/diagnosis/style.css}" href="../../../resources/static/css/diagnosis/style.css">
-	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- 共通のリセットCSS -->
+	<link rel="stylesheet" th:href="@{/css/normalize.css}" href="../../static/css/normalize.css">
+
+	<!-- TOPページ専用のCSS（ファイル名は static/css/test/ にある名前に合わせる） -->
+	<link rel="stylesheet" th:href="@{/css/test/testIndex.css}" href="../../static/css/test/testIndex.css">
 </head>
 
 <body>
-	
-	<div class="screen">
-		
-		<main>
-			<div class="hero">
-				<img src="../../static/images/diagnosis/title.png" th:src="@{images/diagnosis/title.png}">
-			</div>
-			
-			<nav class="link-btn">
-				<section class="col">
-					<a th:href="@{/questions}" href="questions.html">
-						<span class="title">診断をはじめる</span><br>
-						<span class="arrow">↓</span>
-					</a>
-				</section>
-				
-				<section class="col">
-					<a th:href="@{/characters}" href="characters.html">
-						<span class="title">キャラ一覧を見る</span><br>
-						<span class="arrow">↓</span>
-					</a>
-				</section>
-			</nav>
-		</main>
-		
-		<footer class="footer">
-			<a th:href="@{/}" href="index.html">
-				<img src="../../static/images/logo.png" th:src="@{images/logo.png}"　atl="TOPへ">
-			</a>
-			<p class="copyright"><small>&copy;Copyright 2026 304_メタモン</small></p>
-		</footer>
-	</div>
-	
+	<main class="screen">
+
+		<h1 class="logo">
+	<img th:src="@{/images/diagnosis/title.png}"
+	     src="../../static/images/diagnosis/title.png" alt="鬼滅の刃 キャラクター診断">
+</h1>
+
+		<nav class="link-btn">
+			<section class="col">
+				<a class="char-link" th:href="@{/questions}" href="#">
+					<img th:src="@{/images/diagnosis/test/tanjiro.png}"
+					     src="../../static/images/diagnosis/test/tanjiro.png" alt="炭治郎">
+					<span class="label">診断を<br>はじめる</span>
+				</a>
+			</section>
+
+			<section class="col">
+				<a class="char-link" th:href="@{/characters}" href="#">
+					<img th:src="@{/images/diagnosis/test/nezuko.png}"
+					     src="../../static/images/diagnosis/test/nezuko.png" alt="禰豆子">
+					<span class="label">キャラ一覧<br>を見る</span>
+				</a>
+			</section>
+
+			<section class="col">
+				<a class="char-link" href="#">
+					<img th:src="@{/images/diagnosis/test/zenitsu.png}"
+					     src="../../static/images/diagnosis/test/zenitsu.png" alt="善逸">
+					<span class="label">準備中</span>
+				</a>
+			</section>
+		</nav>
+
+	</main>
+	<!-- 右端に吊るす伊之助（飾り）。クリックの邪魔にならないよう CSS で pointer-events を切ってある -->
+	<img class="inosuke"
+	     th:src="@{/images/diagnosis/test/inosuke_cut.png}"
+	     src="../../static/images/diagnosis/test/inosuke_cut.png"
+	     alt="伊之助">
 </body>
 </html>
