@@ -6,14 +6,12 @@ import lombok.Data;
 
 @Data
 public class Diagnosis_results {
-
-    private long id;
-
-    private long user_id;
-
-    private int character_id;
-
-    private LocalDateTime diagnosed_at;
-
+	
+	private long id;
+	
+	private long userId;
+	private int characterId;
+	
+	private LocalDateTime diagnosedAt;
 	
 }

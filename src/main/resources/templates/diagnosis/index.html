@@ -14,14 +14,10 @@
 <body>
 	
 	<div class="screen">
-		<header>
-			<p class="icon">鬼滅の刃<br>キャラクター診断</p>
-		</header>
 		
 		<main>
 			<div class="hero">
-				<!--<div class="mark"></div>-->
-				<img src="../../static/images/diagnosis/title.png">
+				<img src="../../static/images/diagnosis/title.png" th:src="@{images/diagnosis/title.png}">
 			</div>
 			
 			<nav class="link-btn">
@@ -43,8 +39,9 @@
 		
 		<footer class="footer">
 			<a th:href="@{/}" href="index.html">
-				<img src="../../static/images/logo.png"　atl="TOPへ">
+				<img src="../../static/images/logo.png" th:src="@{images/logo.png}"　atl="TOPへ">
 			</a>
+			<p class="copyright"><small>&copy;Copyright 2026 304_メタモン</small></p>
 		</footer>
 	</div>
 	

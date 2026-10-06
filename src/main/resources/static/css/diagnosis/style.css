@@ -31,7 +31,7 @@ header{
 	width: 100%;
 	padding: 10px 24px 8px;
 	border-bottom: 1px solid var(--line);
-	position:relative;
+	position: relative;
 	
 }
 
@@ -48,6 +48,10 @@ header .title {
 	white-space: nowrap;
 }
 
+.nav {
+	position: relative;
+}
+
 .icon{
 	font-family: "Hiragino Sans","Yu Gothic",sans-serif;
 	font-size: 12px;
@@ -62,6 +66,13 @@ h1{
 	line-height: 1.5;
 }
 
+/*.hover-box_text {
+	display: none;
+}
+.hover-box:hover .hover-box_text {
+	display: block;
+} */
+
 main{
 	flex: 1;
 	padding: 60px 24px;
@@ -75,18 +86,6 @@ main{
 	text-align: center;
 }
 
-.hero .mark{
-	width: 64px;
-	height: 64px;
-	margin: 0 auto 20px;
-	background: 
-	linear-gradient(135deg,#e7ded0 25%,transparent 25.5%,transparent 74.5%,#e7ded0 75%),
-	linear-gradient(135deg,#e7ded0 25%,#f2ede2 25.5%,#f2ede2 74.5%,#e7ded0 75%);
-	background-size: 12px 12px;
-	background-position: 0 0,6px 6px;
-	border: 1px solid var(--line);
-}
-
 .hero p{
 	font-family: "Hiragino Sans","Yu Gothic",sans-serif;
 	font-size: 13px;
@@ -95,7 +94,7 @@ main{
 }
 
 .hero img {
-	width: 600px;
+	width: 700px;
 }
 
 .col {
@@ -146,11 +145,12 @@ main{
  	display:flex;
  	gap:16px;
  	padding:16px;
+	margin: 0 0 10px;
 }
 
 .thumb{
- 	flex:0 0 92px;
- 	height:92px;
+ 	flex:0 0 300px;
+ 	height:300px;
  	background:
  	 	linear-gradient(135deg,#e7ded0 25%,transparent 25.5%,transparent 74.5%,#e7ded0 75%),
  	 	linear-gradient(135deg,#e7ded0 25%,#f2ede2 25.5%,#f2ede2 74.5%,#e7ded0 75%);
@@ -165,6 +165,9 @@ main{
  	text-align:center;
  	line-height:1.4;
 }
+.thumb img {
+	width: 300px;
+}
 
 .info{
  	flex:1;
@@ -175,13 +178,13 @@ main{
 }
 
 .name{
- 	font-size:16px;
+ 	font-size:32px;
  	font-weight:600;
 }
 
 .desc{
  	font-family:"Hiragino Sans","Yu Gothic",sans-serif;
- 	font-size:12.5px;
+ 	font-size:20px;
  	line-height:1.7;
  	color:#5a544d;
 }
