@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entity.Users;
 import com.example.demo.service.UsersService;
-
 import com.example.demo.service.impl.TestServiceImpl;
 
 import lombok.RequiredArgsConstructor;
@@ -50,10 +48,10 @@ public class TestController {
 	}
 	
 	@PostMapping("/questions")
-	public String questionsWithUsername(@RequestParam("username") String username) {
-	    System.out.println("入力されたユーザー名：" + username);
+	public String questionsWithUsername(@RequestParam("userName") String userName) {
+	    System.out.println("入力されたユーザー名：" + userName);
 	    Users user = new Users();
-	    user.setUsername(username);
+	    user.setUserName(userName);
 	    usersService.saveUser(user);
 	    return "diagnosis/questions";
 	}
