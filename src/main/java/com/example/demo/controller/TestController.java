@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -9,11 +10,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.example.demo.entity.Users;
 import com.example.demo.service.UsersService;
 
+import com.example.demo.service.impl.TestServiceImpl;
+
+import lombok.RequiredArgsConstructor;
+
 @Controller
+@RequiredArgsConstructor
 public class TestController {
 	
-	@Autowired
-	private UsersService usersService;
+	private final UsersService usersService;
+	private final TestServiceImpl testServiceImpl;
+
 	
 	@GetMapping("/test")
 	public String testView() {
@@ -21,12 +28,14 @@ public class TestController {
 	}
 	
 	@GetMapping("/")
-	public String diagnosisView() {
+	public String diagnosisView(Model model) {
+		model.addAttribute("testCharacter", testServiceImpl.getCharacterById(3));
 		return "diagnosis/index";
 	}
 	
 	@GetMapping("/characters")
-	public String charactersView() {
+	public String charactersView(Model model) {
+		model.addAttribute("characterList", testServiceImpl.getAllCharacters());
 		return "diagnosis/characters";
 	}
 	

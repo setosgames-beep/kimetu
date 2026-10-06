@@ -1,44 +1,50 @@
+@charset "UTF-8";
+
+/* ============================================
+   TOPページ専用CSS（これ1つで全部まかなう完成版）
+   ============================================ */
+
+/* ---------- ページ全体と背景 ---------- */
 html, body {
-	width: 100%;
 	margin: 0;
+	padding: 0;
 }
 
 body {
-	display: block;                /* 他のCSSでflexにされてても打ち消す */
+	/* 背景画像（このCSSの場所 static/css/test/ から見た相対パス） */
 	background-image: url("../../images/diagnosis/test/back1.jpg");
-	background-size: auto 100%;
-	background-repeat: repeat-x;
+	background-size: auto 100%;     /* 高さを画面に合わせる */
+	background-repeat: repeat-x;    /* 左右は同じ画像を並べる */
 	background-position: center top;
 	min-height: 100vh;
 }
 
+/* ---------- 全体の枠：中身を縦に並べて真ん中に寄せる ---------- */
 .screen {
-	width: 100%;                   /* 画面幅いっぱいに広げる */
-	margin: 0 auto;
+	width: 100%;
 	min-height: 100vh;
 	box-sizing: border-box;
-	padding: 60px 12px;
+	padding: 60px 12px;             /* 上下の市松模様の帯と重ならない余白 */
 	display: flex;
-	flex-direction: column;
-	align-items: center;           /* 中身を左右中央に */
-	justify-content: center;       /* 中身を上下中央に */
-	gap: 24px;
+	flex-direction: column;         /* ロゴ → ボタンの順に縦並び */
+	align-items: center;            /* 左右の真ん中 */
+	justify-content: center;        /* 上下の真ん中 */
+	gap: 24px;                      /* ロゴとボタンの間隔 */
 }
 
-/* ロゴ */
+/* ---------- ロゴ（ここが大きすぎた部分） ---------- */
 .logo {
-	margin: 0 auto;                /* 左右中央 */
-	width: min(1000vw, 1200px);
-	text-align: center;
+	margin: 0;
+	width: min(90vw, 480px);        /* 画面幅の90%、最大480px */
 }
 .logo img {
 	display: block;
-	width: 100%;
-	height: auto;
+	width: 100%;                    /* 枠の幅に合わせて縮小 */
+	height: auto;                   /* 縦横比を保つ */
 	margin: 0 auto;
 }
 
-/* 3体を横に並べる */
+/* ---------- 3体のボタンを横に並べる ---------- */
 .link-btn {
 	display: flex;
 	justify-content: center;
@@ -46,20 +52,21 @@ body {
 	width: 100%;
 }
 .col {
-	width: min(28vw, 180px);
+	width: min(28vw, 180px);        /* 1体の幅 */
 }
 
+/* ---------- キャラのボタン（画像＋ラベル） ---------- */
 .char-link {
-	position: relative;
+	position: relative;             /* ラベルを重ねる基準 */
 	display: block;
 	width: 100%;
-	container-type: inline-size;
+	container-type: inline-size;    /* 文字サイズをボタン幅に連動させる */
+	text-decoration: none;
 	transition: transform .15s;
 	-webkit-tap-highlight-color: transparent;
-	text-decoration: none;
 }
-.char-link:hover  { transform: scale(1.06); }
-.char-link:active { transform: scale(0.96); }
+.char-link:hover  { transform: scale(1.06); }  /* マウスを乗せると少し大きく */
+.char-link:active { transform: scale(0.96); }  /* 押すと少し小さく */
 
 .char-link img {
 	display: block;
@@ -67,20 +74,47 @@ body {
 	height: auto;
 }
 
+/* ボードの上に重ねる文字 */
 .char-link .label {
 	position: absolute;
 	top: 6%;
 	left: 6%;
 	width: 88%;
-	height: 40%;
+	height: 40%;                    /* ボード部分（画像の上半分弱） */
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	font-size: 13cqw;
+	font-size: 13cqw;               /* ボタン幅の13% */
 	font-weight: 700;
 	line-height: 1.2;
 	color: #222;
-	transform: rotate(-1deg);
-	pointer-events: none;
+	transform: rotate(-1deg);       /* ボードのわずかな傾きに合わせる */
+	pointer-events: none;           /* クリックはボタンに通す */
+}
+
+/* ---------- 右端に吊るす伊之助 ---------- */
+.inosuke {
+	position: fixed;                /* 画面に固定 */
+	top: 0;                         /* 縄の上端を画面の一番上に */
+	right: 3%;
+	height: min(70vh, 420px);
+	width: auto;
+	z-index: 5;
+	pointer-events: none;           /* 下のボタンのクリックを邪魔しない */
+	transform-origin: 64% 0;        /* 縄の位置を支点にする */
+	animation: inosuke-sway 4s ease-in-out infinite;
+}
+@keyframes inosuke-sway {
+	0%, 100% { transform: rotate(-3deg); }
+	50%      { transform: rotate(3deg); }
+}
+/* OSの「視覚効果を減らす」設定では揺らさない */
+@media (prefers-reduced-motion: reduce) {
+	.inosuke { animation: none; }
+}
+
+/* ---------- スマホなど狭い画面 ---------- */
+@media (max-width: 600px) {
+	.inosuke { height: 45vh; right: 1%; }
 }
