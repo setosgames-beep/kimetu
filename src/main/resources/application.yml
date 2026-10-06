@@ -1,5 +1,4 @@
 spring:
-  
   datasource:
     driver-class-name: org.h2.Driver
     url: jdbc:h2:mem:kimetu
@@ -8,4 +7,7 @@ spring:
 
   h2:
     console:
-     enabled: true
+      enabled: true
+
+mybatis:
+  mapper-locations: classpath:com.example.demo.mapper/*.xml

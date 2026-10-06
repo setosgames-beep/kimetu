@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>キャラクター診断 | ユーザー名入力</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" th:href="@{css/normalize.css}"
+          href="../../../resources/static/css/normalize.css">
+
+    <link rel="stylesheet" th:href="@{css/diagnosis/style.css}"
+          href="../../../resources/static/css/diagnosis/style.css">
+</head>
+
+<body>
+
+    <div class="screen">
+
+        <header>
+            <p class="icon">鬼滅の刃<br>キャラクター診断</p>
+        </header>
+
+        <main>
+
+            <h1>ユーザー名を入力してください</h1>
+
+            <form th:action="@{/questions}" method="post">
+
+                <input type="text"
+                       name="username"
+                       placeholder="ユーザー名を入力"
+                       required>
+
+                <button type="submit">
+                    診断をはじめる
+                </button>
+
+            </form>
+
+        </main>
+
+        <footer class="footer">
+            <a th:href="@{/}" href="index.html">
+                <img src="../../static/images/logo.png" alt="TOPへ">
+            </a>
+        </footer>
+
+    </div>
+
+</body>
+</html>
