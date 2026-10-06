@@ -18,7 +18,7 @@
 	<!-- キャラクター一覧ページ専用CSS -->
 	<link rel="stylesheet"
 		  th:href="@{/css/diagnosis/characters.css}"
-		  href="../../../resources/static/css/diagnosis/characters.css">
+		  href="../../../resources/static/css/test/testquestions.css">
 </head>
 
 <body class="page-characters">
@@ -29,7 +29,7 @@
 
 			<!-- 左側：ロゴ -->
 			<img
-				class="titlelogo"
+				class="title-logo"
 				th:src="@{/images/diagnosis/title.png}"
 				src="../../static/images/diagnosis/title.png"
 				alt="鬼滅の刃診断">
@@ -49,7 +49,7 @@
 		    <section class="question">
 
 		        <h2 class="question-title">
-		            質問 1
+		            <span th:text="">質問 1</span>
 		        </h2>
 
 		        <div class="choices">

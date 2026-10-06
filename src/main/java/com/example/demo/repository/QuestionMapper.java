@@ -9,7 +9,7 @@ import com.example.demo.entity.Questions;
 @Mapper
 public interface QuestionMapper {
 	/** 全設問を表示順で取得 */
-    List<Questions> findAllOrderByDisplayOrder();
+    List<Questions> findAll();
  
     /** IDで設問を1件取得 */
     Questions findById(Integer id);

@@ -48,10 +48,10 @@ public class TestController {
 	}
 	
 	@PostMapping("/questions")
-	public String questionsWithUsername(@RequestParam("userName") String userName) {
-	    System.out.println("入力されたユーザー名：" + userName);
+	public String questionsWithUsername(@RequestParam("name") String name) {
+	    System.out.println("入力されたユーザー名：" + name);
 	    Users user = new Users();
-	    user.setUserName(userName);
+	    user.setName(name);
 	    usersService.saveUser(user);
 	    return "diagnosis/questions";
 	}

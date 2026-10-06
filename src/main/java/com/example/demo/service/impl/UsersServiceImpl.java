@@ -2,18 +2,19 @@ package com.example.demo.service.impl;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.Users;
 import com.example.demo.repository.UserMapper;
 import com.example.demo.service.UsersService;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class UsersServiceImpl implements UsersService  {
 	
-	@Autowired
-    private UserMapper userMapper;
+    private final UserMapper userMapper;
 
     @Override
     public List<Users> getAllUsers() {
