@@ -8,8 +8,8 @@ VALUES
 	'たんじろう',
 	'家族思いで心優しい少年。鬼になってしまった妹・禰豆子を人間に戻すため、鬼殺隊に入隊する。',
 	'誰かの痛みに寄り添える、優しく誠実なあなた。責任感が強く、どんなに困難でも努力を重ねて前に進みます。人の気持ちを大切にしながら、最後まで諦めない頼れるリーダータイプです。',
-	'images/diagnosis/characters/tanjiro.jpg',
-	'images/diagnosis/result/tanjiro.jpg'
+	'images/diagnosis/characters/tanjiro.png',
+	'images/diagnosis/result/tanjiro.png'
 ), -- 1
 (
 	'我妻',
@@ -18,8 +18,8 @@ VALUES
 	'ぜんいつ',
 	'炭治郎の同期の鬼殺隊士。非常に臆病で、すぐに怖がったり弱音を吐いたりする。',
 	'感受性が豊かで、喜びも不安も全力で感じるあなた。怖がりで弱音も吐くけれど、大切な人のピンチには勇気を出せる本物の優しさを持っています。素直で愛情深い、人間味あふれるタイプです。',
-	'images/diagnosis/characters/zenitsu.jpg',
-	'images/diagnosis/result/zenitsu.jpg'
+	'images/diagnosis/characters/zenitsu.png',
+	'images/diagnosis/result/zenitsu.png'
 ), -- 2
 (
 	'嘴平',
@@ -28,8 +28,8 @@ VALUES
 	'いのすけ',
 	'猪の頭をかぶった、野性的な少年。山で猪に育てられたため、非常に好戦的。',
 	'直感と行動力で道を切り開く、パワフルなあなた。負けず嫌いで、強い相手ほど燃えるタイプ。不器用だけれど、まっすぐな気持ちと仲間への思いは誰にも負けません。',
-	'images/diagnosis/characters/inosuke.jpg',
-	'images/diagnosis/result/inosuke.jpg'
+	'images/diagnosis/characters/inosuke.png',
+	'images/diagnosis/result/inosuke.png'
 ), -- 3
 (
 	'竈門',
@@ -38,8 +38,8 @@ VALUES
 	'ねずこ',
 	'炭治郎の妹。鬼舞辻無惨によって鬼にされてしまうが、人間を襲わず炭治郎と行動する。',
 	'多くを語らなくても、そばにいるだけで安心感を与えるあなた。穏やかで芯が強く、大切な人を守る時には驚くほどの力を発揮します。行動で思いやりを示す、包容力のあるタイプです。',
-	'images/diagnosis/characters/nezuko.jpg',
-	'images/diagnosis/result/nezuko.jpg'
+	'images/diagnosis/characters/nezuko.png',
+	'images/diagnosis/result/nezuko.png'
 ), -- 4
 (
 	'冨岡',
@@ -48,8 +48,8 @@ VALUES
 	'ぎゆう',
 	'鬼殺隊の水柱。冷静沈着で口数が少なく、近寄りがたい雰囲気を持つ。',
 	'寡黙で感情表現は苦手だが、心の奥に深い優しさと責任感を持つあなた。目立つことは好まず、必要なときに黙って力を尽くすタイプ。不器用な優しさで、大切な人を静かに支え続けます。',
-	'images/diagnosis/characters/giyu.jpg',
-	'images/diagnosis/result/giyu.jpg'
+	'images/diagnosis/characters/giyu.png',
+	'images/diagnosis/result/giyu.png'
 ), -- 5
 (
 	'煉獄',
@@ -58,8 +58,8 @@ VALUES
 	'きょうじゅろう',
 	'鬼殺隊の炎柱。明るく豪快で、正義感が強い人物。「心を燃やせ」が信条。',
 	'情熱的で明るく、周りを励まし続けるあなた。何事にも全力で取り組み、努力する人を心から称える優しさを持っています。困難な状況でも、笑顔と気迫で人々を前向きにさせる頼れる存在です。',
-	'images/diagnosis/characters/rengoku.jpg',
-	'images/diagnosis/result/rengoku.jpg'
+	'images/diagnosis/characters/rengoku.png',
+	'images/diagnosis/result/rengoku.png'
 ), -- 6
 (
 	'胡蝶',
@@ -68,8 +68,8 @@ VALUES
 	'しのぶ',
 	'鬼殺隊の蟲柱。常に笑顔を浮かべ、特殊な毒を使って鬼と戦う。',
 	'穏やかな笑顔の下に、強い意志と鋭い判断力を秘めたあなた。感情をあまり表に出さず、冷静に物事を進めるタイプ。優しさと芯の強さを併せ持ち、周囲を安心させながらも譲れないものを持っています。',
-	'images/diagnosis/characters/shinobu.jpg',
-	'images/diagnosis/result/shinobu.jpg'
+	'images/diagnosis/characters/shinobu.png',
+	'images/diagnosis/result/shinobu.png'
 ), -- 7
 (
 	'伊黒',
@@ -78,8 +78,8 @@ VALUES
 	'おばない',
 	'鬼殺隊の蛇柱。口元を包帯で隠し、ネチネチとした厳格な性格。',
 	'口調は厳しく素っ気なく見えるが、実は誰よりも情に厚いあなた。大切な人を守るためなら多少の誤解も恐れません。不器用ながらも一途で、静かな忠誠心を持つタイプです。',
-	'images/diagnosis/characters/iguro.jpg',
-	'images/diagnosis/result/iguro.jpg'
+	'images/diagnosis/characters/iguro.png',
+	'images/diagnosis/result/iguro.png'
 ), -- 8
 (
 	'甘露寺',
@@ -88,8 +88,8 @@ VALUES
 	'みつり',
 	'鬼殺隊の恋柱。明るく素直で、惚れっぽい。人並み外れた筋力を持つ。',
 	'感情豊かで愛情深く、人の気持ちに寄り添うのが得意なあなた。少し自信がないところもありますが、根は前向きで優しく、誰かのために全力で尽くすことに喜びを感じます。',
-	'images/diagnosis/characters/mitsuri.jpg',
-	'images/diagnosis/result/mitsuri.jpg'
+	'images/diagnosis/characters/mitsuri.png',
+	'images/diagnosis/result/mitsuri.png'
 ), -- 9
 (
 	'不死川',
@@ -98,8 +98,8 @@ VALUES
 	'さねみ',
 	'鬼殺隊の風柱。非常に気性が荒く、鬼に対して強い敵意を持っている。',
 	'気性が激しく、言葉は厳しいけれど、その裏に強い責任感と自己犠牲の精神を持つあなた。甘えを許さない厳しさは、本気で誰かの成長や安全を願いうがゆえのものです。',
-	'images/diagnosis/characters/sanemi.jpg',
-	'images/diagnosis/result/sanemi.jpg'
+	'images/diagnosis/characters/sanemi.png',
+	'images/diagnosis/result/sanemi.png'
 ), -- 10
 (
 	'宇髄',
@@ -108,8 +108,8 @@ VALUES
 	'てんげん',
 	'鬼殺隊の音柱。元忍で、派手なことを好む豪快な性格。「祭りの神」を自称。',
 	'華やかで自信家、何事も派手にこなすことを好むあなた。目立つことを恐れず、堂々とした振る舞いで周囲を引っ張ります。仲間を守るためなら迷わず先頭に立つ頼もしいタイプです。',
-	'images/diagnosis/characters/tengen.jpg',
-	'images/diagnosis/result/tengen.jpg'
+	'images/diagnosis/characters/tengen.png',
+	'images/diagnosis/result/tengen.png'
 ), -- 11
 (
 	'時透',
@@ -118,8 +118,8 @@ VALUES
 	'むいちろう',
 	'鬼殺隊の霞柱。若くして柱になった天才剣士。普段はぼんやりしている。',
 	'物静かでどこか浮世離れした雰囲気を持つあなた。物事を淡々と冷静に受け止めるタイプですが、その内側には鋭い観察力と芯の強さが眠っています。',
-	'images/diagnosis/characters/muichiro.jpg',
-	'images/diagnosis/result/muichiro.jpg'
+	'images/diagnosis/characters/muichiro.png',
+	'images/diagnosis/result/muichiro.png'
 ), -- 12
 (
 	'悲鳴',
@@ -128,8 +128,8 @@ VALUES
 	'ぎょうめい',
 	'鬼殺隊の岩柱。柱の中で最強の実力を持つ。盲目でありながら常に祈っている。',
 	'大きな包容力と深い慈しみを持つあなた。どんな相手にも敬意を持って接し、弱い立場の人を守ることを何よりも大切にします。物静かながら、揺るぎない信念を持つ、頼れる存在です。',
-	'images/diagnosis/characters/gyomei.jpg',
-	'images/diagnosis/result/gyomei.jpg'
+	'images/diagnosis/characters/gyomei.png',
+	'images/diagnosis/result/gyomei.png'
 ); -- 13
 
 
