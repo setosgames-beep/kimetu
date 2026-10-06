@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-	"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.repository.ChoiceMapper">
 	
 	<!-- 特定の質問にぶら下がる選択肢だけをまとめて取得（質問画面を表示するときに使用） -->
 	<select id="findByQuestionId" resultType="com.example.demo.entity.Choices">
-        SELECT id, question_id AS questionId,character_id AS characterId
-        FROM choices
-        WHERE question_id = #{questionId}
-        ORDER BY id
-    </select>
+		SELECT id, questions_id AS questionsId, characters_id AS charactersId, body
+		FROM choices
+		WHERE questions_id = #{questionsId}
+		ORDER BY id
+	</select>
 	
 </mapper>

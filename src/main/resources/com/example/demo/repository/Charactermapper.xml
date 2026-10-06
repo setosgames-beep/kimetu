@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.repository.CharacterMapper">
+	
+	<!-- 全キャラクターの取得 -->
+	<select id="findAll" resultType="com.example.demo.entity.Characters">
+		SELECT
+		id,
+		family_name AS familyName,
+		first_name AS firstName,
+		family_name_kana AS familyNameKana,
+		first_name_kana AS firstNameKana,
+		description,
+		description_result AS descriptionResult,
+		character_image_path AS characterImagePath,
+		result_image_path AS resultImagePath
+		FROM characters
+	</select>
+	
+	<!-- IDでキャラクターを1件取得（診断結果画面にキャラ情報を貼り付けるために使用） -->
+	<select id="findById" resultType="com.example.demo.entity.Characters">
+		SELECT id,
+		family_name AS familyName,
+		first_name AS firstName,
+		family_name_kana AS familyNameKana,
+		first_name_kana AS firstNameKana,
+		description,
+		description_result AS descriptionResult,
+		character_image_path AS characterImagePath,
+		result_image_path AS resultImagePath
+		FROM characters
+		WHERE id = #{id}
+	</select>
+
+	
+</mapper>

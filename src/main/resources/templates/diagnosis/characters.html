@@ -10,40 +10,35 @@
 </head>
 <body>
 	
-	<div class="screen">
+	<div class="screen nav">
 		<header>
-			<img class="titlelogo" src="../../static/images/diagnosis/title.png">
+			<a href="index.html" th:href="@{/}">
+				<img class="titlelogo" src="../../static/images/diagnosis/title.png" th:src="@{images/diagnosis/title.png}">
+			</a>
 			<h1 class="title">キャラクター一覧</h1>
 		</header>
 		
 		<main class="main-column">
-			<div class="card">
-				<div class="thumb">キャラクター<br>画像</div>
+			<div class="card" th:each="character : ${characterList}">
+				<div class="thumb">
+					<img th:src="@{${character.characterImagePath}}" alt="キャラ画像">
+				</div>
 				<div class="info">
-					<p class="name">キャラクター名</p>
+					<p class="name" th:text="${character.familyName}+' '+${character.firstName}">キャラクター名</p>
 					<div class="desc">
-						<span class="placeholder-text"></span>
-						<span class="placeholder-text" style="width:80%"></span>
+						<span th:text="${character.description}">キャラ説明文</span>
+						
 					</div>
 				</div>
 			</div>
 			
-			<div class="card">
-				<div class="thumb">キャラクター<br>画像</div>
-				<div class="info">
-					<p class="name">キャラクター名</p>
-					<div class="desc">
-						<span class="placeholder-text"></span>
-						<span class="placeholder-text" style="width:80%"></span>
-					</div>
-				</div>
-			</div>
 		</main>
 		
 		<footer class="footer">
 			<a th:href="@{/}" href="index.html">
-				<img src="../../static/images/logo.png" alt="TOPへ">
+				<img src="../../static/images/logo.png" th:src="@{images/logo.png}"　atl="TOPへ">
 			</a>
+			<p class="copyright"><small>&copy;Copyright 2026 304_メタモン</small></p>
 		</footer>
 	</div>
 </body>
