@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>キャラクター診断 | 質問選択</title>
+
+	<!-- normalize.css -->
+	<link rel="stylesheet"
+		  th:href="@{/css/normalize.css}"
+		  href="../../../resources/static/css/normalize.css">
+
+	<!-- 共通CSS -->
+	<link rel="stylesheet"
+		  th:href="@{/css/diagnosis/style.css}"
+		  href="../../../resources/static/css/diagnosis/style.css">
+
+	<!-- キャラクター一覧ページ専用CSS -->
+	<link rel="stylesheet"
+		  th:href="@{/css/diagnosis/characters.css}"
+		  href="../../../resources/static/css/diagnosis/characters.css">
+</head>
+
+<body class="page-characters">
+
+	<div class="screen">
+
+		<header>
+
+			<!-- 左側：ロゴ -->
+			<img
+				class="titlelogo"
+				th:src="@{/images/diagnosis/title.png}"
+				src="../../static/images/diagnosis/title.png"
+				alt="鬼滅の刃診断">
+
+			<!-- 中央：タイトル -->
+			<h1 class="title">質問選択</h1>
+
+		</header>
+
+		<!-- ============================================
+		     質問エリア
+		     ============================================ -->
+
+		<main class="main-column">
+
+		    <!-- 質問1 -->
+		    <section class="question">
+
+		        <h2 class="question-title">
+		            質問 1
+		        </h2>
+
+		        <div class="choices">
+
+		            <label class="choice">
+		                <input type="radio"
+		                       name="question1"
+		                       value="A">
+		                <span>A</span>
+		            </label>
+
+		            <label class="choice">
+		                <input type="radio"
+		                       name="question1"
+		                       value="B">
+		                <span>B</span>
+		            </label>
+
+		            <label class="choice">
+		                <input type="radio"
+		                       name="question1"
+		                       value="C">
+		                <span>C</span>
+		            </label>
+
+		            <label class="choice">
+		                <input type="radio"
+		                       name="question1"
+		                       value="D">
+		                <span>D</span>
+		            </label>
+
+		        </div>
+
+		    </section>
+
+
+		    <!-- 質問2 -->
+		    <section class="question">
+
+		        <h2 class="question-title">
+		            質問 2
+		        </h2>
+
+		        <div class="choices">
+
+		            <label class="choice">
+		                <input type="radio"
+		                       name="question2"
+		                       value="A">
+		                <span>A</span>
+		            </label>
+
+		            <label class="choice">
+		                <input type="radio"
+		                       name="question2"
+		                       value="B">
+		                <span>B</span>
+		            </label>
+
+		            <label class="choice">
+		                <input type="radio"
+		                       name="question2"
+		                       value="C">
+		                <span>C</span>
+		            </label>
+
+		            <label class="choice">
+		                <input type="radio"
+		                       name="question2"
+		                       value="D">
+		                <span>D</span>
+		            </label>
+
+		        </div>
+
+		    </section>
+
+
+		    <!-- 質問3 -->
+		    <section class="question">
+
+		        <h2 class="question-title">
+		            質問 3
+		        </h2>
+
+		        <div class="choices">
+
+		            <label class="choice">
+		                <input type="radio"
+		                       name="question3"
+		                       value="A">
+		                <span>A</span>
+		            </label>
+
+		            <label class="choice">
+		                <input type="radio"
+		                       name="question3"
+		                       value="B">
+		                <span>B</span>
+		            </label>
+
+		            <label class="choice">
+		                <input type="radio"
+		                       name="question3"
+		                       value="C">
+		                <span>C</span>
+		            </label>
+
+		            <label class="choice">
+		                <input type="radio"
+		                       name="question3"
+		                       value="D">
+		                <span>D</span>
+		            </label>
+
+		        </div>
+
+		    </section>
+
+
+		    <!-- 質問4 -->
+		    <section class="question">
+
+		        <h2 class="question-title">
+		            質問 4
+		        </h2>
+
+		        <div class="choices">
+
+		            <label class="choice">
+		                <input type="radio"
+		                       name="question4"
+		                       value="A">
+		                <span>A</span>
+		            </label>
+
+		            <label class="choice">
+		                <input type="radio"
+		                       name="question4"
+		                       value="B">
+		                <span>B</span>
+		            </label>
+
+		            <label class="choice">
+		                <input type="radio"
+		                       name="question4"
+		                       value="C">
+		                <span>C</span>
+		            </label>
+
+		            <label class="choice">
+		                <input type="radio"
+		                       name="question4"
+		                       value="D">
+		                <span>D</span>
+		            </label>
+
+		        </div>
+
+		    </section>
+
+
+		    <!-- 質問5 -->
+		    <section class="question">
+
+		        <h2 class="question-title">
+		            質問 5
+		        </h2>
+
+		        <div class="choices">
+
+		            <label class="choice">
+		                <input type="radio"
+		                       name="question5"
+		                       value="A">
+		                <span>A</span>
+		            </label>
+
+		            <label class="choice">
+		                <input type="radio"
+		                       name="question5"
+		                       value="B">
+		                <span>B</span>
+		            </label>
+
+		            <label class="choice">
+		                <input type="radio"
+		                       name="question5"
+		                       value="C">
+		                <span>C</span>
+		            </label>
+
+		            <label class="choice">
+		                <input type="radio"
+		                       name="question5"
+		                       value="D">
+		                <span>D</span>
+		            </label>
+
+		        </div>
+
+		    </section>
+
+
+		    <!-- 診断ボタン -->
+		    <div class="button-area">
+
+		        <button type="submit"
+		                class="diagnosis-button">
+		            診断する
+		        </button>
+
+		    </div>
+
+		</main>
+
+		<footer class="footer">
+
+			<a
+				class="top-link"
+				th:href="@{/}"
+				href="index.html">
+
+				TOP
+
+			</a>
+
+		</footer>
+
+	</div>
+
+</body>
+
+</html>
