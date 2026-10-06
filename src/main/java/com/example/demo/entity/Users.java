@@ -7,7 +7,8 @@ import lombok.Data;
 @Data
 public class Users {
 	private long id;
-	private String userName;
+	private String name;
+	private String body;
 	private LocalDateTime createdAt;
 	
 }
