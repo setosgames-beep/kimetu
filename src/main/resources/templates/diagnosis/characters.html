@@ -11,9 +11,9 @@
 <body>
 	
 	<div class="screen nav">
-		<header>
-			<a href="index.html" th:href="@{/}">
-				<img class="titlelogo" src="../../static/images/diagnosis/title.png" th:src="@{images/diagnosis/title.png}">
+		<header　class="nav-com">
+			<a class="title-logo" href="index.html" th:href="@{/}">
+				<img src="../../static/images/diagnosis/title.png" th:src="@{images/diagnosis/title.png}">
 			</a>
 			<h1 class="title">キャラクター一覧</h1>
 		</header>
@@ -27,7 +27,6 @@
 					<p class="name" th:text="${character.familyName}+' '+${character.firstName}">キャラクター名</p>
 					<div class="desc">
 						<span th:text="${character.description}">キャラ説明文</span>
-						
 					</div>
 				</div>
 			</div>

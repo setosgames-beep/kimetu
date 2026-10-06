@@ -35,14 +35,10 @@ header{
 	
 }
 
-header .titlelogo {
-	width: 150px;
-}
 
 header .title {
 	position: absolute;
 	top: 50%;
-	
 	left: 50%;
 	transform: translate(-50%, -50%);
 	white-space: nowrap;
@@ -50,6 +46,14 @@ header .title {
 
 .nav {
 	position: relative;
+}
+.nav-com {
+	position: relative;
+	top: 0;
+	width: 100%;
+}
+.title-logo {
+	width: 150px;
 }
 
 .icon{

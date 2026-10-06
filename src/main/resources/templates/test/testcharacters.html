@@ -35,27 +35,18 @@
 		</header>
 		
 		<main class="main-column">
-			<div class="card">
-				<div class="thumb">キャラクター<br>画像</div>
+			<div class="card" th:each="character : ${characterList}">
+				<div class="thumb">
+					<img th:src="@{${character.characterImagePath}}" alt="キャラ画像">
+				</div>
 				<div class="info">
-					<p class="name">キャラクター名</p>
+					<p class="name" th:text="${character.familyName}+' '+${character.firstName}">キャラクター名</p>
 					<div class="desc">
-						<span class="placeholder-text"></span>
-						<span class="placeholder-text" style="width:80%"></span>
+						<span th:text="${character.description}">キャラ説明文</span>
 					</div>
 				</div>
 			</div>
 			
-			<div class="card">
-				<div class="thumb">キャラクター<br>画像</div>
-				<div class="info">
-					<p class="name">キャラクター名</p>
-					<div class="desc">
-						<span class="placeholder-text"></span>
-						<span class="placeholder-text" style="width:80%"></span>
-					</div>
-				</div>
-			</div>
 		</main>
 		
 		<!-- フッター：画像ではなく文字の「TOP」リンクにする -->
