@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+/* ページ全体 */
+@charset "UTF-8";
+
+body {
+    background-image: url("../../images/diagnosis/test/Userback.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+/* 入力画面の白い部分 */
+.screen {
+    background-color: rgba(255, 255, 255, .9);
+}
+
+/* 入力部分 */
+main {
+    flex: 1;
+    margin: 60px auto;
+}
+
+/* フッター */
+footer {
+    width: 100%;
+    padding: 16px 20px 28px;
+    box-sizing: border-box;
+    text-align: center;
+}
