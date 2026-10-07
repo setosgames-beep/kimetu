@@ -39,7 +39,7 @@ public class TestController {
 	
 	@GetMapping("/questions")
 	public String questionsView() {
-		return "diagnosis/questions";
+		return "diagnosis/tester/questions";
 	}
 	
 	@GetMapping("/username")
@@ -53,7 +53,7 @@ public class TestController {
 	    Users user = new Users();
 	    user.setName(name);
 	    usersService.saveUser(user);
-	    return "diagnosis/questions";
+	    return "diagnosis/tester/questions";
 	}
 	
 }
