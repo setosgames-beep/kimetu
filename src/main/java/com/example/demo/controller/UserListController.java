@@ -15,7 +15,7 @@ import com.example.demo.entity.Diagnosis_results;
 import com.example.demo.entity.Users;
 import com.example.demo.service.CharacterService;
 import com.example.demo.service.DiagnosisResultsService;
-import com.example.demo.service.UserService;
+import com.example.demo.service.UsersService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -23,14 +23,14 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class UserListController {
 
-	private final UserService userService;                       // ③（仮）
+	private final UsersService usersService;                       // ③（仮）
 	private final DiagnosisResultsService diagnosisResultsService;
 	private final CharacterService characterService;
 
 	// GET /users → ユーザー一覧
 	@GetMapping("/users")
 	public String list(Model model) {
-		List<Users> users = userService.getAllUsers();           // ③（仮）
+		List<Users> users = usersService.getAllUsers();           // ③（仮）
 
 		// userId → 最新の診断結果のキャラクター名
 		Map<Long, String> characterNames = new HashMap<>();
@@ -51,7 +51,7 @@ public class UserListController {
 	// POST /users/{id}/delete → 削除して一覧に戻る
 	@PostMapping("/users/{id}/delete")
 	public String delete(@PathVariable long id) {
-		userService.deleteUser(id);                              // ③（仮）
+		usersService.deleteUser(id);                              // ③（仮）
 		return "redirect:/users";
 	}
 }
