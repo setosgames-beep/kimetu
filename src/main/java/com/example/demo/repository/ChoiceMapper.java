@@ -15,7 +15,7 @@ public interface ChoiceMapper {
     List<Choices> findByQuestionId(int questionId);
 
 //    /** IDで選択肢を1件取得 */
-//    Choices findById(int id);
+     Choices findById(int id);
 //
 //    /** 選択肢を新規登録 */
 //    int insert(Choices choice);
