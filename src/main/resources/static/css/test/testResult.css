@@ -2,7 +2,7 @@
 
 /* ============================================
    診断結果ページ専用CSS（result.html 用）
-   構成：ヘッダー（帯）／ 和紙の背景＋キャラカード ／ フッター（帯）
+   構成：ヘッダー（帯）／ 左:キャラ画像・右:診断結果 ／ フッター（帯）
    ※ <body class="page-result"> のページにだけ効く
    ============================================ */
 
@@ -16,11 +16,14 @@ body.page-result {
 	font-family: "Shippori Mincho", "游明朝", serif;
 }
 
+/* 画面が広いとき、メインの左右に見える色（和紙に近い色） */
+body.page-result { background-color: #efeeea; }
+
 /* ---------- 2. 全体の枠：ヘッダー・メイン・フッターを縦に並べる ---------- */
 body.page-result .screen {
 	display: flex;
 	flex-direction: column;
-	min-height: 100vh;                /* 画面の高さいっぱい */
+	min-height: 100vh;
 	width: 100%;
 	max-width: none;
 	margin: 0;
@@ -64,71 +67,124 @@ body.page-result header .title {
 	white-space: nowrap;
 }
 
-/* ---------- 4. メイン：ここだけ和紙の背景（帯と被らない） ---------- */
-body.page-result .main-column {
+/* ---------- 4. メイン：ここだけ和紙の背景（帯と被らない）・レスポンシブ ----------
+   背景画像（横長）を、画面の形に合わせて見せ方を切り替える
+   ・縦長／ほぼ正方形の画面：枠いっぱいに拡大（切れるのは左右だけ。上下の帯は残る）
+   ・横長の画面          ：高さにぴったり合わせて、足りない左右は同じ画像を並べる
+   どちらも画像を歪めず、上下の帯が必ず全部見える */
+body.page-result .result-main {
 	flex: 1 0 auto;                   /* ヘッダーとフッターの間をすべて使う */
 	display: flex;
-	flex-direction: column;
-	justify-content: center;          /* カードを上下中央に */
-	gap: 12px;                        /* カード同士の間隔 */
+	align-items: center;              /* 中身を上下中央に */
+	justify-content: center;          /* 中身を左右中央に */
 	box-sizing: border-box;
-	width: 100%;
-	max-width: none;
+	width: 100%;                      /* 画面の横幅いっぱい */
 	margin: 0;
 
 	/* 背景の上下の帯（オレンジ・市松模様）に重ならないよう余白を取る */
-	padding-top: clamp(60px, 16vh, 160px);
-	padding-bottom: clamp(60px, 16vh, 160px);
-
-	/* カードは幅640pxで中央に寄せる（背景は横いっぱいのまま） */
-	padding-left: max(16px, calc((100% - 640px) / 2));
-	padding-right: max(16px, calc((100% - 640px) / 2));
+	padding: clamp(70px, 22vh, 220px) 16px;
 
 	/* 背景画像（このCSSの場所 static/css/test/ から見た相対パス） */
 	background-image: url("../../images/diagnosis/test/back6.jpg");
-	background-size: cover;
+	background-size: cover;           /* 基本：枠いっぱいに拡大 */
 	background-position: center;
 	background-repeat: no-repeat;
-	background-color: #f3f0ea;        /* 画像が読み込めないときの色 */
-	border: none;
-	box-shadow: none;
+	background-color: #efeeea;        /* 画像が読み込めないときの色 */
 }
 
-/* ---------- 5. キャラカード ---------- */
-body.page-result .card {
+/* 横長の画面（PC・タブレット横向き）：高さに合わせて、左右は同じ画像を並べる */
+@media (min-aspect-ratio: 1/1) {
+	body.page-result .result-main {
+		background-size: auto 100%;   /* 高さをぴったり合わせる（縦横比は保つ） */
+		background-repeat: repeat-x;  /* 足りない左右は横に繰り返す */
+		background-position: center top;
+	}
+}
+
+/* ---------- 5. 左右のレイアウト（左：画像／右：診断結果） ---------- */
+.result-layout {
 	display: flex;
-	gap: 12px;
-	align-items: center;
-	padding: 12px;
-	background: rgba(255, 255, 255, 0.85);   /* 少し透けた白 */
+	gap: 24px;
+	align-items: stretch;             /* 左右の高さをそろえる */
+	width: min(100%, 820px);
+}
+
+/* 左：キャラクター画像（縦長の枠） */
+.result-image {
+	flex: 0 0 38%;                    /* 全体の38%の幅 */
+	aspect-ratio: 4 / 5;              /* 縦長（幅4：高さ5） */
 	border-radius: 12px;
-	box-shadow: 0 2px 8px rgba(0, 0, 0, .15);
-}
-body.page-result .thumb {
-	flex: 0 0 80px;
-	height: 80px;
-	border-radius: 50%;
 	overflow: hidden;
-	background: #ddd;
+	background: #fff;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
 }
-body.page-result .thumb img {
+.result-image img {
 	display: block;
 	width: 100%;
 	height: 100%;
-	object-fit: cover;                /* 丸い枠いっぱいに表示 */
+	object-fit: cover;                /* 枠いっぱいに表示（はみ出し部分は切る） */
+	object-position: center top;      /* 顔が切れにくいよう上を基準に */
 }
-body.page-result .info { flex: 1; }
-body.page-result .name {
-	margin: 0 0 4px;
+
+/* 右：診断結果 */
+.result-box {
+	flex: 1;
+	box-sizing: border-box;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;          /* 中身を上下中央に */
+	background: rgba(255, 255, 255, 0.85);   /* 少し透けた白 */
+	border-radius: 12px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, .15);
+}
+.lead {
+	margin: 0 0 8px;
+	font-size: 14px;
+	letter-spacing: .1em;
+}
+.result-name {
+	margin: 0 0 12px;
 	font-family: "Zen Antique", serif;
-	font-size: 18px;
+	font-size: 28px;
 }
-body.page-result .desc {
-	margin: 0;
-	font-size: 13px;
-	line-height: 1.6;
-	color: #444;
+.result-desc {
+	margin: 0 0 16px;
+	font-size: 14px;
+	line-height: 1.8;
 }
+
+/* 相性（％）とバー */
+.match { margin: 0 0 12px; }
+.match-text { margin: 0 0 4px; font-size: 14px; }
+.match-text strong { font-size: 24px; color: #d9381e; }   /* 数字を大きく赤く */
+.bar {
+	height: 10px;
+	border-radius: 5px;
+	background: #e6e1d8;              /* バーの土台 */
+	overflow: hidden;
+}
+.bar span {
+	display: block;
+	height: 100%;
+	background: linear-gradient(90deg, #f5a623, #d9381e);  /* オレンジ→赤 */
+}
+
+/* ボタン */
+.btn-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.btn {
+	display: inline-block;
+	padding: 10px 18px;
+	border-radius: 24px;
+	font-size: 14px;
+	font-weight: 600;
+	text-decoration: none;
+	transition: transform .15s;
+}
+.btn:hover  { transform: scale(1.05); }
+.btn:active { transform: scale(0.96); }
+.btn-main { background: #222; color: #fff; }
+.btn-sub  { background: #fff; color: #222; border: 1px solid #222; }
 
 /* ---------- 6. フッター：単色の帯、TOPとコピーライトを中央に ---------- */
 body.page-result .footer {
@@ -152,8 +208,12 @@ body.page-result .top-link {
 body.page-result .top-link:hover { opacity: .7; }
 body.page-result .copyright { margin: 4px 0 0; font-size: 11px; color: #666; }
 
-/* ---------- 7. 画面が狭いとき（スマホ） ---------- */
-@media (max-width: 480px) {
+/* ---------- 7. 画面が狭いとき（スマホ）：上に画像、下に診断結果 ---------- */
+@media (max-width: 640px) {
+	.result-layout { flex-direction: column; align-items: center; }
+	.result-image  { flex: none; width: min(70%, 260px); }   /* 画像は小さめに */
+	.result-box    { width: 100%; }
+	.result-name   { font-size: 24px; }
 	body.page-result header .title-logo { height: 36px; }
 	body.page-result header .title      { font-size: 14px; }
 }
