@@ -33,7 +33,9 @@ body.page-characters::before {
 	z-index: -1;                      /* 中身より後ろに置く */
 
 	/* 背景画像（このCSSの場所 static/css/test/ から見た相対パス） */
-	background-image: url("../../images/diagnosis/test/back3.jpg");
+
+	background-image: url("../../images/diagnosis/test/back5.jpg");
+
 	background-size: cover;           /* 画面いっぱいに拡大 */
 	background-position: center;
 	background-repeat: no-repeat;
@@ -57,7 +59,9 @@ body.page-characters .screen {
    4. ヘッダー：ロゴは左上、タイトルは帯のど真ん中
    ------------------------------------------------ */
 body.page-characters header {
-	position: relative;               /* タイトルを重ねる基準 */
+
+	position: sticky;               /* タイトルを重ねる基準 */
+
 	display: flex;
 	align-items: center;              /* ロゴを上下中央に */
 	justify-content: flex-start;      /* ロゴを左寄せ */
@@ -76,7 +80,8 @@ body.page-characters header {
 
 /* ロゴ（HTMLは class="title-logo"。旧名 titlelogo でも効くように両方書く） */
 body.page-characters .title-logo,
-body.page-characters .titlelogo {
+body.page-characters .titlelogo 
+{
 	display: block;
 	height: 48px;                     /* ロゴの高さ（大きさはここで調整） */
 	width: auto;                      /* 縦横比を保つ */
@@ -98,6 +103,12 @@ body.page-characters header .title {
 	white-space: nowrap;              /* 途中で改行させない */
 }
 
+body.page-characters header .title {
+	font-family: "Zen Antique", serif;
+	font-size: 24px;
+	font-weight: 400;
+	letter-spacing: 0.15em;
+}
 /* ------------------------------------------------
    5. カードが並ぶ部分
    ------------------------------------------------ */
@@ -119,7 +130,7 @@ body.page-characters .card {
 	padding: 16px;                    /* 内側の赤い枠線（outline）と中身が重ならない余白 */
 	background: rgba(255, 253, 247, 0.92);
 	border: 1px solid #1c1c1c;
-	outline: 1px solid #6b2d2d;
+	outline: 1px solid rgb(0, 128, 0);
 	outline-offset: -8px;
 }
 
@@ -139,7 +150,7 @@ body.page-characters .card .thumb img {
 	object-fit: cover;                /* 枠いっぱいに表示 */
 	object-position: center top;      /* 顔が切れにくいよう上を基準に */
 	background: none;
-	mix-blend-mode: normal;           /* PNGは透過なので multiply は不要 */
+	mix-blend-mode: normal;           
 }
 
 /* 説明の部分：残りの幅を使う（min-width:0 で文字が枠からはみ出さない） */
@@ -236,4 +247,85 @@ body.page-characters .copyright {
 	body.page-characters .card .desc {
 		line-height: 1.8;
 	}
+}
+/* ============================================
+   9. 右上メニュー
+   ============================================ */
+
+/* メニュー全体の基準 */
+body.page-characters .menu-wrapper {
+	position: absolute;
+	top: 8px;
+	right: 16px;
+	z-index: 1000;
+}
+
+/* ☰ ボタン */
+body.page-characters .menu-button {
+	width: 48px;
+	height: 48px;
+	padding: 0;
+
+	background: #f5f2ec;
+	border: 1px solid #333;
+	border-radius: 6px;
+
+	font-size: 28px;
+	line-height: 1;
+	cursor: pointer;
+}
+
+/* マウスを乗せたとき */
+body.page-characters .menu-button:hover {
+	background: #e8e4dc;
+}
+
+/* メニュー */
+body.page-characters .menu-list {
+	display: none;
+
+	position: absolute;
+	top: 52px;
+	right: 0;
+
+	width: 180px;
+
+	background: rgba(255, 253, 247, 0.98);
+
+	border: 1px solid #333;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+
+	z-index: 1001;
+}
+
+/* JavaScriptでopenが付いたら表示 */
+body.page-characters .menu-list.open {
+	display: flex;
+	flex-direction: column;
+}
+
+/* メニューの各リンク */
+body.page-characters .menu-list a {
+
+	display: block;
+
+	padding: 14px 18px;
+
+	color: #222;
+	font-family: "Shippori Mincho", serif;
+	font-size: 15px;
+	text-decoration: none;
+
+	border-bottom: 1px solid #ddd;
+}
+
+/* 最後の線を消す */
+body.page-characters .menu-list a:last-child {
+	border-bottom: none;
+}
+
+/* マウスを乗せたとき */
+body.page-characters .menu-list a:hover {
+	background: #eee9df;
+
 }
