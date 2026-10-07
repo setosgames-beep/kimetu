@@ -3,9 +3,11 @@ package com.example.demo.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.demo.entity.DiagnosisForm;
 import com.example.demo.entity.Users;
 import com.example.demo.service.UsersService;
 import com.example.demo.service.impl.TestServiceImpl;
@@ -22,7 +24,17 @@ public class TestController {
 	
 	@GetMapping("/test")
 	public String testView() {
-		return "test/test";
+		return "diagnosis/tester/index";
+	}
+	
+	@GetMapping("/test/character")
+	public String testCharacter() {
+		return "diagnosis/tester/characters";
+	}
+	
+	@GetMapping("/test/question")
+	public String testQuestion() {
+		return "diagnosis/tester/question";
 	}
 	
 	@GetMapping("/")
@@ -38,8 +50,18 @@ public class TestController {
 	}
 	
 	@GetMapping("/questions")
-	public String questionsView() {
-		return "diagnosis/tester/questions";
+	public String questionsView(Model model) {
+		model.addAttribute("map", testServiceImpl.getQuestionsAndChoices());
+		model.addAttribute("diagnosisForm", new DiagnosisForm());
+		return "diagnosis/questions";
+	}
+	
+	@GetMapping("/diagnosis/submit")
+	public String submit(@ModelAttribute DiagnosisForm form, Model model) {
+//		Characters resultCharacter = testServiceImpl.
+		
+//		model.addAllAttributes("character", resultCharacter);
+		return "diagnosis/result";
 	}
 	
 	@GetMapping("/username")
