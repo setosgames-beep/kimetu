@@ -8,9 +8,10 @@ import com.example.demo.entity.Users;
 public interface UsersService {
 	
 	List<Users> getAllUsers();
-
+	
     Users getUserById(long id);
-
+    
     void saveUser(Users user);
 
+    void deleteUser(long id);
 }
