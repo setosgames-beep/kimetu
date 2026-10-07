@@ -63,6 +63,7 @@ public class UsersServiceImpl implements UsersService  {
                 Characters character =
                         characterMapper.findById(latestResult.getCharacterId());
 
+
                 if (character != null) {
                     form.setDiagnosisResult(
                             character.getFamilyName() + character.getFirstName()
@@ -86,6 +87,7 @@ public class UsersServiceImpl implements UsersService  {
         userMapper.deleteById(id);
     }
 	
+
 	
 
 }
