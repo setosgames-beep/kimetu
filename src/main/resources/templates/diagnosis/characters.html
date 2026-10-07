@@ -1,62 +1,176 @@
 <!DOCTYPE html>
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-	<!-- 文字コード（直接ファイルを開いたときの文字化け防止） -->
+	<!-- 文字コード -->
 	<meta charset="UTF-8">
-	<!-- スマホ表示用：画面幅に合わせる -->
+
+	<!-- スマホ表示用 -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 	<title>キャラクター診断 | キャラクター一覧</title>
 
-	<!-- ===== Google Fonts(キャラクター一覧のフォント) ===== -->
-	<!-- 外部サーバーへの接続を先に準備して、表示を速くする -->
+	<!-- ===== Google Fonts ===== -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<!-- 使うフォント:名前=Zen Antique / 説明文=Shippori Mincho -->
-	<link href="https://fonts.googleapis.com/css2?family=Zen+Antique&family=Shippori+Mincho:wght@400;600&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Zen+Antique&family=Shippori+Mincho:wght@400;600&display=swap"
+		rel="stylesheet">
 
-	<!-- 共通CSS（th:href の先頭に / を付けると、どの階層のURLでも読み込める） -->
-	<link rel="stylesheet" th:href="@{/css/normalize.css}" href="../../static/css/normalize.css">
-	<link rel="stylesheet" th:href="@{/css/diagnosis/style.css}" href="../../static/css/diagnosis/style.css">
+	<!-- 共通CSS -->
+	<link rel="stylesheet"
+		th:href="@{/css/normalize.css}"
+		href="../../static/css/normalize.css">
 
-	<!-- このページ専用のCSS（必ず style.css より後ろに書く＝後勝ちで上書きできる） -->
-	<link rel="stylesheet" th:href="@{/css/test/testcharacters.css}" href="../../static/css/test/testcharacters.css">
+	<link rel="stylesheet"
+		th:href="@{/css/diagnosis/style.css}"
+		href="../../static/css/diagnosis/style.css">
+
+	<!-- キャラクター一覧専用CSS -->
+	<link rel="stylesheet"
+		th:href="@{/css/test/testcharacters.css}"
+		href="../../static/css/test/testcharacters.css">
 </head>
 
-<!-- page-characters を付けると、背景CSSがこのページだけに効く -->
+
 <body class="page-characters">
+
 	<div class="screen">
 
-		<!-- ===== ヘッダー：ロゴは左上、タイトルは真ん中 ===== -->
+		<!-- ============================================
+		     ヘッダー
+		     ============================================ -->
 		<header>
+
+			<!-- ロゴ -->
 			<img class="titlelogo"
 			     src="../../static/images/diagnosis/title.png"
-			     th:src="@{/images/diagnosis/title.png}" alt="キャラクター診断">
+			     th:src="@{/images/diagnosis/title.png}"
+			     alt="キャラクター診断">
+
+			<!-- ページタイトル -->
 			<h1 class="title">キャラクター一覧</h1>
+
+
+			<!-- ========================================
+			     右上メニューボタン
+			     ======================================== -->
+			<div class="menu-wrapper">
+
+				<!-- ☰ ボタン -->
+				<button type="button"
+				        class="menu-button"
+				        onclick="toggleMenu()"
+				        aria-label="メニューを開く">
+					☰
+				</button>
+
+
+				<!-- メニュー -->
+				<nav id="menu" class="menu-list">
+
+					<!-- TOP -->
+					<a th:href="@{/}" href="index.html">
+						TOP
+					</a>
+
+					<!-- 診断 -->
+					<a th:href="@{/questions}" href="#">
+						診断
+					</a>
+
+					<!-- 診断結果 -->
+					<a th:href="@{/result}" href="#">
+						診断結果
+					</a>
+
+					<!-- キャラクター一覧 -->
+					<a th:href="@{/characters}" href="#">
+						キャラクター一覧
+					</a>
+
+					<!-- ユーザー一覧 -->
+					<a th:href="@{/users}" href="#">
+						ユーザー一覧
+					</a>
+
+				</nav>
+
+			</div>
+
+
 		</header>
 
-		<!-- ===== メイン：キャラのカードを1人ずつ表示 ===== -->
+
+		<!-- ============================================
+		     メイン：キャラクター一覧
+		     ============================================ -->
 		<main class="main-column">
-			<div class="card" th:each="character : ${characterList}">
+
+			<div class="card"
+			     th:each="character : ${characterList}">
+
+				<!-- キャラクター画像 -->
 				<div class="thumb">
-					<!-- characterImagePath は「/images/...」から始まるパスにする -->
+
 					<img th:src="@{${character.characterImagePath}}"
-					     th:alt="${character.familyName}+' '+${character.firstName}" alt="キャラ画像">
+					     th:alt="${character.familyName}+' '+${character.firstName}"
+					     alt="キャラ画像">
+
 				</div>
+
+
+				<!-- キャラクター情報 -->
 				<div class="info">
-					<p class="name" th:text="${character.familyName}+' '+${character.firstName}">キャラクター名</p>
+
+					<p class="name"
+					   th:text="${character.familyName}+' '+${character.firstName}">
+						キャラクター名
+					</p>
+
 					<div class="desc">
-						<span th:text="${character.description}">キャラ説明文</span>
+						<span th:text="${character.description}">
+							キャラ説明文
+						</span>
 					</div>
+
 				</div>
+
 			</div>
+
 		</main>
 
-		<!-- ===== フッター：文字の「TOP」リンクとコピーライト ===== -->
+
+		<!-- ============================================
+		     フッター
+		     ============================================ -->
 		<footer class="footer">
-			<a class="top-link" th:href="@{/}" href="index.html">TOP</a>
-			<p class="copyright"><small>&copy;Copyright 2026 304_メタモン</small></p>
+
+			<a th:href="@{/}" href="index.html">
+
+				<img src="../../static/images/logo.png"
+				     th:src="@{/images/logo.png}"
+				     alt="TOPへ">
+
+			</a>
+
+			<p class="copyright">
+				<small>&copy;Copyright 2026 304_メタモン</small>
+			</p>
+
 		</footer>
 
 	</div>
+
+
+	<!-- ============================================
+	     メニューを開閉するJavaScript
+	     ============================================ -->
+	<script>
+		function toggleMenu() {
+			const menu = document.getElementById("menu");
+			menu.classList.toggle("open");
+		}
+	</script>
+
 </body>
 </html>

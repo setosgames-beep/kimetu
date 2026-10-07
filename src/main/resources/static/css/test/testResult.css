@@ -92,13 +92,42 @@ body.page-result .result-main {
 	background-color: #efeeea;        /* 画像が読み込めないときの色 */
 }
 
-/* 横長の画面（PC・タブレット横向き）：高さに合わせて、左右は同じ画像を並べる */
-@media (min-aspect-ratio: 1/1) {
-	body.page-result .result-main {
-		background-size: auto 100%;   /* 高さをぴったり合わせる（縦横比は保つ） */
-		background-repeat: repeat-x;  /* 足りない左右は横に繰り返す */
-		background-position: center top;
-	}
+/* ---------- 4. メイン：背景画像を1枚だけ表示 ---------- */
+body.page-result {
+	margin: 0;
+	padding: 0;
+	min-height: 100vh;
+	background: #efeeea;
+}
+
+body.page-result .result-main {
+	position: relative;
+	z-index: 0;
+
+	flex: 1 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	width: 100%;
+	box-sizing: border-box;
+	margin: 0;
+	padding: clamp(70px, 22vh, 220px) 16px;
+
+	background: none;
+}
+
+/* 背景画像 */
+body.page-result .result-main::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+
+	background-image: url("../../images/diagnosis/test/back6.jpg");
+	background-size: 100% 100%;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 
 /* ---------- 5. 左右のレイアウト（左：画像／右：診断結果） ---------- */
@@ -216,4 +245,61 @@ body.page-result .copyright { margin: 4px 0 0; font-size: 11px; color: #666; }
 	.result-name   { font-size: 24px; }
 	body.page-result header .title-logo { height: 36px; }
 	body.page-result header .title      { font-size: 14px; }
+}
+body.page-result .menu-wrapper {
+	position: absolute;
+	top: 8px;
+	right: 16px;
+	z-index: 1000;
+}
+
+body.page-result .menu-button {
+	width: 48px;
+	height: 48px;
+	padding: 0;
+	background: #f5f2ec;
+	border: 1px solid #333;
+	border-radius: 6px;
+	font-size: 28px;
+	line-height: 1;
+	cursor: pointer;
+}
+
+body.page-result .menu-button:hover {
+	background: #e8e4dc;
+}
+
+body.page-result .menu-list {
+	display: none;
+	position: absolute;
+	top: 52px;
+	right: 0;
+	width: 180px;
+	background: rgba(255, 253, 247, 0.98);
+	border: 1px solid #333;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+	z-index: 1001;
+}
+
+body.page-result .menu-list.open {
+	display: flex;
+	flex-direction: column;
+}
+
+body.page-result .menu-list a {
+	display: block;
+	padding: 14px 18px;
+	color: #222;
+	font-family: "Shippori Mincho", serif;
+	font-size: 15px;
+	text-decoration: none;
+	border-bottom: 1px solid #ddd;
+}
+
+body.page-result .menu-list a:last-child {
+	border-bottom: none;
+}
+
+body.page-result .menu-list a:hover {
+	background: #eee9df;
 }
