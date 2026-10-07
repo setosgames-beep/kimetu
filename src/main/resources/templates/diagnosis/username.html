@@ -2,15 +2,29 @@
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
 
 <head>
+
     <meta charset="UTF-8">
+
     <title>キャラクター診断 | ユーザー名入力</title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" th:href="@{css/normalize.css}"
+    <link rel="stylesheet"
+          th:href="@{css/normalize.css}"
           href="../../../resources/static/css/normalize.css">
 
-    <link rel="stylesheet" th:href="@{css/diagnosis/style.css}"
+    <link rel="stylesheet"
+          th:href="@{css/diagnosis/style.css}"
           href="../../../resources/static/css/diagnosis/style.css">
+	
+	<link rel="stylesheet"
+		th:href="@{/css/test/testcharacters.css}"
+		href="../../static/css/test/testcharacters.css">
+		
+    <link rel="stylesheet"
+          th:href="@{css/test/User.css}"
+          href="../../../resources/static/css/test/User.css">
+
 </head>
 
 <body>
@@ -18,7 +32,12 @@
     <div class="screen">
 
         <header>
-            <p class="icon">鬼滅の刃<br>キャラクター診断</p>
+
+            <p class="icon">
+                鬼滅の刃<br>
+                キャラクター診断
+            </p>
+
         </header>
 
         <main>
@@ -41,12 +60,17 @@
         </main>
 
         <footer class="footer">
+
             <a th:href="@{/}" href="index.html">
+
                 <img src="../../static/images/logo.png" alt="TOPへ">
+
             </a>
+
         </footer>
 
     </div>
 
 </body>
+
 </html>
