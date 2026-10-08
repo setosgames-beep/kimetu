@@ -8,8 +8,17 @@
 	<body>
 
 	    <main class="screen">
+			<div class="user-list-title">
 
-	        <h1>ユーザー一覧</h1>
+			    <p>※絵・ライアン</p>
+
+			    <img src="/images/diagnosis/characters/old/etc/agatuma.jpg" alt="我妻善逸">
+
+			    <h1>ユーザー一覧</h1>
+
+			    <img src="/images/diagnosis/characters/old/etc/inosuke.jpg" alt="嘴平伊之助">
+
+			</div>
 			
 	<p th:if="${#lists.isEmpty(users)}">ユーザーがいません。</p>
 
@@ -25,7 +34,10 @@
 			<button type="submit">削除</button>
 		</form>
 	</div>
-	<a href="/">TOPに戻る</a>
+	<a href="/" class="top-button">
+	    <img src="/images/diagnosis/test/shinobu.png" alt="胡蝶しのぶ">
+	    <span>TOPに戻る</span>
+	</a>
 </main>
 </body>
 </html>
