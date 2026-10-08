@@ -15,5 +15,5 @@ public interface DiagnosisResultsMapper {
     /** 診断結果を新規登録 */
     int insert(Diagnosis_results diagnosisResult);
 
-
+    int deleteByUserId(long userId);
 }

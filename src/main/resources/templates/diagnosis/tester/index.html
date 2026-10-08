@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	
 	<link rel="stylesheet" th:href="@{css/normalize.css}" href="../../../resources/static/css/normalize.css">
-	<link rel="stylesheet" th:href="@{css/diagnosis/style.css}" href="../../../resources/static/css/diagnosis/style.css">
+	<link rel="stylesheet" th:href="@{css/diagnosis/style.css}" href="../../../static/css/diagnosis/style.css">
 	
 </head>
 
@@ -17,19 +17,19 @@
 		
 		<main>
 			<div class="hero">
-				<img src="../../static/images/diagnosis/title.png" th:src="@{images/diagnosis/title.png}">
+				<img src="../../../static/images/diagnosis/title.png" th:src="@{images/diagnosis/title.png}">
 			</div>
 			
 			<nav class="link-btn">
 				<section class="col">
-					<a th:href="@{/questions}" href="questions.html">
+					<a th:href="@{/test/questions}" href="questions.html">
 						<span class="title">診断をはじめる</span><br>
 						<span class="arrow">↓</span>
 					</a>
 				</section>
 				
 				<section class="col">
-					<a th:href="@{/characters}" href="characters.html">
+					<a th:href="@{/test/characters}" href="characters.html">
 						<span class="title">キャラ一覧を見る</span><br>
 						<span class="arrow">↓</span>
 					</a>
@@ -39,7 +39,7 @@
 		
 		<footer class="footer">
 			<a th:href="@{/}" href="index.html">
-				<img src="../../static/images/logo.png" th:src="@{images/logo.png}"　atl="TOPへ">
+				<img src="../../../static/images/logo.png" th:src="@{images/logo.png}"　atl="TOPへ">
 			</a>
 			<p class="copyright"><small>&copy;Copyright 2026 304_メタモン</small></p>
 		</footer>

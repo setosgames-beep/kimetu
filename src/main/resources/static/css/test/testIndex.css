@@ -118,3 +118,30 @@ body {
 @media (max-width: 600px) {
 	.inosuke { height: 45vh; right: 1%; }
 }
+
+/* 画面の高さ：スマホのアドレスバーを除いた高さ（dvh）を優先する。非対応ブラウザは 100vh を使う */
+body    { min-height: 100vh; min-height: 100dvh; }
+.screen { min-height: 100vh; min-height: 100dvh; }
+
+/* 文字サイズ：cqw に対応してない古いブラウザ用の保険（先に普通のpxを書いておく） */
+.char-link .label { font-size: 13px; font-size: 13cqw; }
+
+/* ---------- 大きな画面（PCなど）：ロゴとボタンを大きくする ---------- */
+@media (min-width: 1200px) {
+	.logo { width: 600px; }          /* ロゴを大きく */
+	.col  { width: 220px; }          /* ボタンを大きく */
+	.link-btn { gap: 20px; }
+}
+
+/* ---------- スマホ：伊之助を小さくして、中身の後ろに回す ---------- */
+@media (max-width: 480px) {
+	.inosuke {
+		height: 24vh;                /* さらに小さく */
+		right: 0;
+		z-index: 0;                  /* ロゴ・ボタンの後ろに回す */
+	}
+	.screen {
+		position: relative;
+		z-index: 1;                  /* 中身を伊之助より手前に出す */
+	}
+}

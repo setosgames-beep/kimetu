@@ -4,16 +4,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>キャラクター診断 | キャラクター一覧</title>
 	
-	<link rel="stylesheet" th:href="@{css/normalize.css}" href="../../../resources/static/css/normalize.css">
-	<link rel="stylesheet" th:href="@{css/diagnosis/style.css}" href="../../../resources/static/css/diagnosis/style.css">
+	<link rel="stylesheet" th:href="@{css/normalize.css}" href="../../../../resources/static/css/normalize.css">
+	<link rel="stylesheet" th:href="@{css/diagnosis/style.css}" href="../../../../resources/static/css/diagnosis/style.css">
 	
 </head>
 <body>
 	
-	<div class="screen nav">
-		<header　class="nav-com">
-			<a href="index.html" th:href="@{/}">
-				<img class="title-logo" src="../../static/images/diagnosis/title.png" th:src="@{images/diagnosis/title.png}">
+	<div class="screen">
+		<header>
+			<a href="index.html" th:href="@{/test}">
+				<img class="title-logo" src="../../../static/images/diagnosis/title.png" th:src="@{images/diagnosis/title.png}">
 			</a>
 			<h1 class="title">キャラクター一覧</h1>
 		</header>
@@ -21,7 +21,7 @@
 		<main class="main-column">
 			<div class="card" th:each="character : ${characterList}">
 				<div class="thumb">
-					<img th:src="@{${character.characterImagePath}}" alt="キャラ画像">
+					<img th:src="@{${character.characterImagePath}}" src="../../../static/images/diagnosis/mainTitle.png" alt="キャラ画像">
 				</div>
 				<div class="info">
 					<p class="name" th:text="${character.familyName}+' '+${character.firstName}">キャラクター名</p>
@@ -34,8 +34,8 @@
 		</main>
 		
 		<footer class="footer">
-			<a th:href="@{/}" href="index.html">
-				<img src="../../static/images/logo.png" th:src="@{images/logo.png}"　atl="TOPへ">
+			<a th:href="@{/test}" href="index.html">
+				<img src="../../../static/images/logo.png" th:src="@{images/logo.png}"　atl="TOPへ">
 			</a>
 			<p class="copyright"><small>&copy;Copyright 2026 304_メタモン</small></p>
 		</footer>
