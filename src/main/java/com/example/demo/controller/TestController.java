@@ -7,8 +7,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entity.Characters;
+import com.example.demo.entity.Choices;
 import com.example.demo.form.DiagnosisForm;
 import com.example.demo.service.TestService;
 import com.example.demo.service.UsersService;
@@ -84,7 +86,6 @@ public class TestController {
 
 		// 有木：最終質問に渡すキャラクターIDを確認する。
 		// 有木：今回のテストでは炭治郎(1)と伊之助(3)が入る想定。
-		System.out.println("有木：最終質問のキャラID = " + topCharacterIds);
 
 		model.addAttribute("choices",
 		        testService.getFinalChoices(topCharacterIds));
@@ -133,6 +134,27 @@ public class TestController {
 		// 3.集計結果を受け取り、結果画面にまわす
 		model.addAttribute("character", resultCharacter);
 		return "diagnosis/result";
+	}
+	
+	// 有木：16問目で選択された選択肢を受け取る。
+	// 有木：finalQuestion.htmlから「結果を見る」ボタンで呼ばれる。
+	@PostMapping("/test/diagnosis/final")
+	public String finalSubmit(@RequestParam int choiceId, Model model) {
+
+	    // 有木：選択された選択肢をDBから取得する。
+	    // 有木：この選択肢に紐づいているcharacterIdを確認するために使用する。
+	    Choices choice = testService.getChoiceById(choiceId);
+
+	    // 有木：選択肢に紐づいているキャラクターIDから、
+	    // 有木：最終的な診断結果のキャラクター情報を取得する。
+	    Characters resultCharacter =
+	            testService.getCharacterById(choice.getCharacterId());
+
+	    // 有木：結果画面にキャラクター情報を渡す。
+	    model.addAttribute("character", resultCharacter);
+
+	    // 有木：既存の診断結果画面を表示する。
+	    return "diagnosis/result";
 	}
 	
 	@GetMapping("/username")

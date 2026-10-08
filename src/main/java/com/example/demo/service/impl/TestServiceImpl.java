@@ -167,5 +167,8 @@ public class TestServiceImpl implements TestService {
 		return choiceMapper.findFinalChoices(16, characterIds);
 	}
 
-
+	@Override
+	public Choices getChoiceById(int id) {
+	    return choiceMapper.findById(id);
+	}
 }

@@ -30,5 +30,5 @@ public interface TestService {
 	// 有木：同点になったキャラクターだけの最終質問の選択肢を取得する。
 	// 有木：TestControllerから呼ばれて、16問目の選択肢を絞り込む。
 	List<Choices> getFinalChoices(List<Integer> characterIds);
-
+	Choices getChoiceById(int id);
 }
