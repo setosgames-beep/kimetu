@@ -55,13 +55,27 @@ public class UserListController {
 		return "redirect:/users";
 	}
 	
-	// GET /users/{id}/edit → ユーザー編集画面
 	@GetMapping("/users/{id}/edit")
 	public String editUser(@PathVariable long id, Model model) {
-
 	    Users user = usersService.getUserById(id);
 
+	    List<Diagnosis_results> results =
+	            diagnosisResultsService.getDiagnosisResultsByUserId(id);
+
+	    String diagnosisResult = "未診断";
+
+	    if (!results.isEmpty()) {
+	        Characters c =
+	                characterService.getCharacterById(results.get(0).getCharacterId());
+
+	        if (c != null) {
+	            diagnosisResult =
+	                    c.getFamilyName() + " " + c.getFirstName();
+	        }
+	    }
+
 	    model.addAttribute("user", user);
+	    model.addAttribute("diagnosisResult", diagnosisResult);
 
 	    return "diagnosis/user/user-edit";
 	}
