@@ -1,8 +1,6 @@
 package com.example.demo.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,11 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.example.demo.entity.Characters;
-import com.example.demo.entity.Diagnosis_results;
-import com.example.demo.entity.Users;
-import com.example.demo.service.CharacterService;
-import com.example.demo.service.DiagnosisResultsService;
+import com.example.demo.form.UserEditForm;
 import com.example.demo.service.UsersService;
 
 import lombok.RequiredArgsConstructor;
