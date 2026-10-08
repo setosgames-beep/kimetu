@@ -1,0 +1,86 @@
+@charset "UTF-8";
+
+/* ユーザー一覧 */
+.user-card {
+    background: #ffffff;
+    border: 1px solid #d8d2c6;
+    padding: 20px;
+    margin: 0 auto 16px;
+    max-width: 650px;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("../../images/diagnosis/test/back1.jpg");
+    background-size: auto 100%;
+    background-repeat: repeat-x;
+    background-position: center top;
+    min-height: 100vh;
+}
+
+.screen {
+    width: min(90%, 800px);
+    min-height: 80vh;
+    margin: 40px auto;
+    padding: 40px 30px;
+    box-sizing: border-box;
+    background: #f6f3ee;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .3);
+}
+
+.screen h1 {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0 0 30px;
+    color: #1c1a1e;
+}
+
+.user-card h2 {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0 0 12px;
+    color: #1c1a1e;
+}
+
+.user-card p {
+    font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #5a544d;
+    margin: 8px 0;
+}
+
+.user-card a {
+    display: inline-block;
+    background: #ffffff;
+    border: 1px solid #d8d2c6;
+    color: #b3432b;
+    padding: 8px 18px;
+    text-decoration: none;
+    margin-top: 10px;
+    margin-right: 8px;
+}
+
+.user-card a:hover {
+    border-color: #b3432b;
+}
+
+.user-card button {
+    background: #ffffff;
+    border: 1px solid #d8d2c6;
+    color: #1c1a1e;
+    padding: 8px 18px;
+    font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+    cursor: pointer;
+}
+
+.user-card button:hover {
+    border-color: #b3432b;
+}
+
