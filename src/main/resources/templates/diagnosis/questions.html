@@ -26,7 +26,6 @@
 	<div class="screen">
 
 		<header>
-
 			<!-- 左側：ロゴ -->
 			<img
 				class="title-logo"
@@ -36,7 +35,6 @@
 
 			<!-- 中央：タイトル -->
 			<h1 class="title">質問選択</h1>
-
 		</header>
 
 		<!-- ============================================
@@ -54,26 +52,26 @@
 						<span th:text="${entry.key.body}">質問 1</span>
 					</h2>
 					
-					<div class="choices">
+					<div class="choices" th:each="choice, iterStat : ${entry.value}">
 	
-						<label class="choice" th:each="choice, iterStat : ${entry.value}">
+						<label class="choice">
+							
 							<input type="radio"
 									th:fieald="*{selects[__${entry.key.id}__]}"
-									th:value="${choice.id}" requried />
-							<span th:text="${choice.body}">A</span>
+									th:value="${choice.id}"
+									th:requried="${iterStat.first}" />
+									
+							<span th:text="${choice.body}">[選択肢]</span>
 						</label>
 					</div>
-	
 				</div>
 				
 				<!-- 診断ボタン -->
 				<div class="button-area">
-
 					<button type="submit"
 							class="diagnosis-button">
 						診断する
 					</button>
-
 				</div>
 			</form>
 			
