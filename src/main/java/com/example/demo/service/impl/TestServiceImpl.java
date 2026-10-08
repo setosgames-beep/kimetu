@@ -151,4 +151,21 @@ public class TestServiceImpl implements TestService {
 		// 有木：最高得点のキャラクターを1人または複数人返す。
 		return topCharacters;
 	}
+	
+
+	// 有木：IDを指定して質問を1件取得する。
+	// 有木：TestControllerから呼ばれて、16問目の最後の質問を取得する。
+	@Override
+	public Questions getQuestionById(int id) {
+		return questionMapper.findById(id);
+	}
+
+	// 有木：同点になったキャラクターだけの最終質問の選択肢を取得する。
+	// 有木：TestControllerから呼ばれて、16問目の選択肢を同点キャラだけに絞り込む。
+	@Override
+	public List<Choices> getFinalChoices(List<Integer> characterIds) {
+		return choiceMapper.findFinalChoices(16, characterIds);
+	}
+
+
 }

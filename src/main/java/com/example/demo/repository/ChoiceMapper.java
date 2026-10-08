@@ -3,9 +3,9 @@ package com.example.demo.repository;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import com.example.demo.entity.Choices;
-
 @Mapper
 public interface ChoiceMapper {
 //	 /** 全選択肢を取得 */
@@ -14,9 +14,11 @@ public interface ChoiceMapper {
     /** 【超重要】特定の質問ID(questionId)に紐づく選択肢だけをまとめて取得 */
     List<Choices> findByQuestionId(int questionId);
 
- // 有木：最後の質問で、同点になったキャラクターに対応する選択肢だけ取得する。
- // 有木：characterIdを使って「このキャラクターの選択肢」をDBから探す。
- List<Choices> findByCharacterId(int characterId);
+    // 有木：最終質問の中から、同点になったキャラの選択肢だけを取得する
+    List<Choices> findFinalChoices(
+            @Param("questionId") int questionId,
+            @Param("characterIds") List<Integer> characterIds
+    );
  
 //    /** IDで選択肢を1件取得 */
      Choices findById(int id);

@@ -20,7 +20,10 @@
 		</header>
 			
 			<!-- 送信先を /diagnosis/submit に指定 -->
-			<form th:action="@{/diagnosis/submit}" th:object="${diagnosisForm}" method="post">
+			<!-- 有木：今は同点判定を含むテスト用Controllerへ送る -->
+			<form th:action="@{/test/diagnosis/submit}"
+			      th:object="${diagnosisForm}"
+			      method="post">
 				
 				<!-- 質問のループ -->
 				<div class="question" th:each="entry : ${map}">

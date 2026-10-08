@@ -69,12 +69,28 @@ public class TestController {
 		}
 
 		// 有木：最高得点が2人以上なら、まだ結果を確定せず最後の質問へ進む。
+
 		// 有木：同点になったキャラクターだけを最後の質問画面に渡す。
 		model.addAttribute("topCharacters", topCharacters);
 
-		return "diagnosis/finalQuestion";
+		// 有木：DBから16問目の「最後の質問」を取得して画面に渡す。
+		model.addAttribute("question", testService.getQuestionById(16));
+
+		// 有木：同点になったキャラクターのIDだけを取り出す。
+		// 有木：このIDを使って16問目の選択肢をDBから絞り込む。
+		List<Integer> topCharacterIds = topCharacters.stream()
+		        .map(Characters::getId)
+		        .toList();
+
+		// 有木：最終質問に渡すキャラクターIDを確認する。
+		// 有木：今回のテストでは炭治郎(1)と伊之助(3)が入る想定。
+		System.out.println("有木：最終質問のキャラID = " + topCharacterIds);
+
+		model.addAttribute("choices",
+		        testService.getFinalChoices(topCharacterIds));
+		// 有木：最終質問の画面を表示する。
+		return "diagnosis/tester/finalQuestion";
 	}
-	
 	
 	/*------------------  -------------------*/
 	@GetMapping("/")
