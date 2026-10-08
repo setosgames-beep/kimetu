@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -54,12 +56,23 @@ public class TestController {
 			return "diagnosis/tester/question";
 		}
 		
-		// 2.フォームの値を受け取て集計にまわす
-		Characters resultCharacter = testService.calculateResult(form.getSelects());
-		
-		// 3.集計結果を受け取り、結果画面にまわす
-		model.addAttribute("character", resultCharacter);
-		return "diagnosis/result";
+		// 有木：15問の回答をTestServiceに渡して、最高得点のキャラクターを取得する。
+		// 有木：1人なら通常の結果画面、複数人なら最後の質問へ進ませる。
+		List<Characters> topCharacters = testService.getTopCharacters(form.getSelects());
+
+		// 有木：最高得点のキャラクターが1人だけなら、今まで通り結果画面を表示する。
+		if (topCharacters.size() == 1) {
+
+			model.addAttribute("character", topCharacters.get(0));
+
+			return "diagnosis/result";
+		}
+
+		// 有木：最高得点が2人以上なら、まだ結果を確定せず最後の質問へ進む。
+		// 有木：同点になったキャラクターだけを最後の質問画面に渡す。
+		model.addAttribute("topCharacters", topCharacters);
+
+		return "diagnosis/finalQuestion";
 	}
 	
 	
