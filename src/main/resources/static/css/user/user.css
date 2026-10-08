@@ -214,3 +214,281 @@ body {
     font-weight: bold;
     color: #b3432b;
 }
+
+/* ユーザー編集画面 */
+
+.register-screen form > div {
+    margin-bottom: 24px;
+}
+
+.register-screen label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #5a544d;
+}
+
+.register-screen input,
+.register-screen textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid #d8d2c6;
+    background: #ffffff;
+    font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+}
+
+.register-screen input:focus,
+.register-screen textarea:focus {
+    outline: none;
+    border-color: #b3432b;
+}
+
+.register-screen form > div p:first-child {
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #5a544d;
+}
+
+.register-screen form > div p:last-child {
+    margin: 0;
+    padding: 12px 16px;
+    background: #ffffff;
+    border: 1px solid #d8d2c6;
+    color: #b3432b;
+    font-weight: 600;
+}
+
+.register-screen form > a {
+    display: block;
+    width: 220px;
+    margin: 12px auto 0;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    text-align: center;
+    background: #ffffff;
+    border: 1px solid #d8d2c6;
+    color: #5a544d;
+    text-decoration: none;
+    font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+    font-size: 14px;
+    transition: .15s;
+}
+
+.register-screen form > a:hover {
+    border-color: #b3432b;
+    color: #b3432b;
+    transform: translateY(-2px);
+}
+
+/* ユーザー一覧：TOPに戻る */
+
+.screen > a {
+    display: block;
+    width: 220px;
+    margin: 20px auto 0;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    text-align: center;
+    background: #ffffff;
+    border: 1px solid #d8d2c6;
+    color: #5a544d;
+    text-decoration: none;
+    font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+    font-size: 14px;
+    transition: .15s;
+}
+
+.screen > a:hover {
+    border-color: #b3432b;
+    color: #b3432b;
+    transform: translateY(-2px);
+}
+
+/* ユーザー一覧：カード */
+
+.user-card {
+    border-radius: 8px;
+    transition: .15s;
+}
+
+.user-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, .08);
+}
+
+/* ユーザー一覧：診断結果 */
+
+.user-card p span {
+    display: inline-block;
+    margin-left: 4px;
+    padding: 4px 10px;
+    background: #fff8f5;
+    border: 1px solid #e4c8bd;
+    border-radius: 12px;
+    color: #b3432b;
+    font-weight: 600;
+}
+
+/* ========================================
+   ユーザー画面：かわいく整える
+   ======================================== */
+
+/* ユーザー一覧：カード */
+.user-card {
+    border-radius: 10px;
+    transition: .2s;
+    position: relative;
+    overflow: hidden;
+}
+
+.user-card::before {
+    content: "";
+    display: block;
+    height: 4px;
+    background: #b3432b;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.user-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, .1);
+}
+
+/* ユーザー名 */
+.user-card h2 {
+    position: relative;
+    padding-left: 14px;
+}
+
+.user-card h2::before {
+    content: "◆";
+    position: absolute;
+    left: 0;
+    top: 3px;
+    font-size: 9px;
+    color: #b3432b;
+}
+
+/* 診断結果 */
+.user-card p span {
+    display: inline-block;
+    margin-left: 4px;
+    padding: 4px 11px;
+    background: #fff8f5;
+    border: 1px solid #e4c8bd;
+    border-radius: 12px;
+    color: #b3432b;
+    font-weight: 600;
+}
+
+/* 一覧のリンク・ボタン */
+.user-card a,
+.user-card button {
+    border-radius: 6px;
+    transition: .15s;
+}
+
+.user-card a:hover,
+.user-card button:hover {
+    transform: translateY(-1px);
+}
+
+/* ユーザー一覧：TOPに戻る */
+.screen > a {
+    border-radius: 6px;
+    transition: .15s;
+}
+
+.screen > a:hover {
+    transform: translateY(-2px);
+}
+
+/* ========================================
+   ユーザー編集画面
+   ======================================== */
+
+/* 入力項目 */
+.register-screen form > div {
+    margin-bottom: 24px;
+}
+
+/* ラベル */
+.register-screen label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #5a544d;
+}
+
+/* 入力欄 */
+.register-screen input,
+.register-screen textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid #d8d2c6;
+    border-radius: 6px;
+    background: #ffffff;
+    font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+    font-size: 14px;
+    transition: .15s;
+}
+
+/* 入力中 */
+.register-screen input:focus,
+.register-screen textarea:focus {
+    outline: none;
+    border-color: #b3432b;
+    box-shadow: 0 0 0 3px rgba(179, 67, 43, .08);
+}
+
+/* 診断結果 */
+.register-screen form > div p:first-child {
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #5a544d;
+}
+
+.register-screen form > div p:last-child {
+    margin: 0;
+    padding: 12px 16px;
+    background: #fff8f5;
+    border: 1px solid #e4c8bd;
+    border-radius: 6px;
+    color: #b3432b;
+    font-weight: 600;
+}
+
+/* 保存ボタン */
+.register-screen form button {
+    border-radius: 6px;
+    transition: .15s;
+}
+
+.register-screen form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(179, 67, 43, .15);
+}
+
+/* TOPに戻る */
+.register-screen form > a {
+    border-radius: 6px;
+}
+
+/* ========================================
+   ちょっとした統一感
+   ======================================== */
+
+.register-screen h1,
+.screen h1 {
+    letter-spacing: .08em;
+}
+
+.register-screen,
+.screen {
+    border-radius: 4px;
+}
