@@ -63,7 +63,7 @@ public class UserListController {
 
 	    model.addAttribute("user", user);
 
-	    return "user/user-edit";
+	    return "diagnosis/user/user-edit";
 	}
 	
 	// POST /users/{id}/edit → ユーザー情報を更新
