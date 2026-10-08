@@ -39,6 +39,12 @@ public class UsersServiceImpl implements UsersService  {
     public void saveUser(Users user) {
         userMapper.insert(user);
     }
+    
+    @Override
+    public void updateUser(Users user) {
+        userMapper.update(user);
+    }
+    
     /** ユーザー一覧を診断結果付きで取得 */
     @Override
     public List<UserEditForm> getUserList() {
