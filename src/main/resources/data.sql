@@ -250,3 +250,11 @@ VALUES
 (16,12,'静かに、けれど着実に自分の役目を果たす気持ち'),
 (16,13,'弱い者を守るという、揺るがない信念');
 
+INSERT INTO users (name) VALUES
+('テストユーザー1'),
+('テストユーザー2');
+
+
+INSERT INTO diagnosis_results (users_id, characters_id) VALUES
+(1,1),
+(2,2);
