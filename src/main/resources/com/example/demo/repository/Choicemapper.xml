@@ -4,21 +4,16 @@
 	
 	<!-- 特定の質問にぶら下がる選択肢だけをまとめて取得（質問画面を表示するときに使用） -->
 	<select id="findByQuestionId" resultType="com.example.demo.entity.Choices">
-		SELECT id, questions_id AS questionsId, characters_id AS charactersId, body
+		SELECT id, questions_id AS questionsId, characters_id AS charactersId, CONCAT(characters_id, body) AS body
 		FROM choices
 		WHERE questions_id = #{questionsId}
 		ORDER BY id
 	</select>
 	
-	  <select id="findById" resultType="com.example.demo.entity.Choices">
-
-        SELECT
-            id,
-            questions_id AS questionsId,
-            characters_id AS charactersId,
-            body
-        FROM choices
-        WHERE id = #{id}
-
-    </select>
+	<select id="findById" resultType="com.example.demo.entity.Choices">
+		SELECT id, questions_id AS questionsId, characters_id AS charactersId, body
+		FROM choices
+		WHERE id = #{id}
+	</select>
+	
 </mapper>
