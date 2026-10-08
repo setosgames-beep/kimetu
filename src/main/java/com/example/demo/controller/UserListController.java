@@ -34,17 +34,20 @@ public class UserListController {
 
 		// userId → 最新の診断結果のキャラクター名
 		Map<Long, String> characterNames = new HashMap<>();
+		Map<Long, String> characterImages = new HashMap<>();
 		for (Users u : users) {
 			List<Diagnosis_results> results =
 					diagnosisResultsService.getDiagnosisResultsByUserId(u.getId());
 			if (!results.isEmpty()) {
 				Characters c = characterService.getCharacterById(results.get(0).getCharacterId());
 				characterNames.put(u.getId(), c.getFamilyName() + " " + c.getFirstName());
+				characterImages.put(u.getId(), c.getCharacterImagePath());
 			}
 		}
 
 		model.addAttribute("users", users);
 		model.addAttribute("characterNames", characterNames);
+		model.addAttribute("characterImages", characterImages);
 		return "diagnosis/users";
 	}
 
