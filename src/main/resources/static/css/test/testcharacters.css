@@ -33,7 +33,9 @@ body.page-characters::before {
 	z-index: -1;                      /* 中身より後ろに置く */
 
 	/* 背景画像（このCSSの場所 static/css/test/ から見た相対パス） */
+
 	background-image: url("../../images/diagnosis/test/back5.jpg");
+
 	background-size: cover;           /* 画面いっぱいに拡大 */
 	background-position: center;
 	background-repeat: no-repeat;
@@ -57,7 +59,9 @@ body.page-characters .screen {
    4. ヘッダー：ロゴは左上、タイトルは帯のど真ん中
    ------------------------------------------------ */
 body.page-characters header {
+
 	position: sticky;               /* タイトルを重ねる基準 */
+
 	display: flex;
 	align-items: center;              /* ロゴを上下中央に */
 	justify-content: flex-start;      /* ロゴを左寄せ */
@@ -302,6 +306,7 @@ body.page-characters .menu-list.open {
 
 /* メニューの各リンク */
 body.page-characters .menu-list a {
+
 	display: block;
 
 	padding: 14px 18px;
@@ -322,4 +327,5 @@ body.page-characters .menu-list a:last-child {
 /* マウスを乗せたとき */
 body.page-characters .menu-list a:hover {
 	background: #eee9df;
+
 }

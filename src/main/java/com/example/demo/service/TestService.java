@@ -13,6 +13,9 @@ public interface TestService {
 	
 	Map<Questions, List<Choices>> getQuestionsAndChoices();
 	List<Choices> getChoices(int questionId);
+
+//	Characters calculateResult(List<Integer> selectedChoiceIds);
+	Characters calculateResult(Map<Integer, Integer> selects);
 	
-	Characters calculateResult(List<Integer> selectedChoiceIds);
+	
 }

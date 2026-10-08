@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>診断結果</title>
+    <style>
+        .result-container { text-align: center; margin-top: 50px; }
+        .character-img { max-width: 300px; border-radius: 10px; margin: 20px 0; }
+        .back-btn { display: inline-block; margin-top: 30px; padding: 10px 20px; text-decoration: none; background: #007bff; color: white; border-radius: 5px; }
+    </style>
+</head>
+<body>
+
+    <div class="result-container" th:if="${character != null}">
+        <h1>あなたにおすすめのキャラクターは…</h1>
+        
+        <!-- フリガナの表示（任意） -->
+        <p style="color: #666; margin-bottom: 0;">
+            <span th:text="${character.familyNameKana}">セイ</span> 
+            <span th:text="${character.firstNameKana}">メイ</span>
+        </p>
+        
+        <!-- フルネームの表示（family_name + first_name） -->
+        <h2 style="font-size: 2rem; margin-top: 5px;">
+            <span th:text="${character.familyName}">苗字</span> 
+            <span th:text="${character.firstName}">名前</span>
+        </h2>
+
+        <!-- キャラクター画像（result_image_path）の表示 -->
+        <!-- ※画像パスが "/images/char1.png" などの想定。src属性にマッピングします -->
+        <div th:if="${character.resultImagePath != null}">
+            <img th:src="@{${character.resultImagePath}}" alt="キャラクター画像" class="character-img" />
+        </div>
+
+        <!-- 診断結果の説明文（description_result） -->
+        <div style="max-width: 600px; margin: 0 auto; text-align: left; background: #f9f9f9; padding: 20px; border-radius: 8px;">
+            <h3>診断結果解説</h3>
+            <p th:text="${character.descriptionResult}">ここに診断結果の詳しい説明文が表示されます。</p>
+        </div>
+
+        <!-- もう一度診断するボタン -->
+        <a th:href="@{/questions}" class="back-btn">もう一度診断する</a>
+    </div>
+
+    <!-- 万が一キャラクターデータが取得できなかった場合のフォールバック -->
+    <div class="result-container" th:unless="${character != null}">
+        <h1>診断エラー</h1>
+        <p>正しく集計できませんでした。もう一度最初からやり直してください。</p>
+        <a th:href="@{/questions}" class="back-btn">質問画面に戻る</a>
+    </div>
+
+</body>
+</html>
