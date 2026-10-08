@@ -48,7 +48,7 @@
 			<form th:action="@{/diagnosis/submit}" th:object="${diagnosisForm}" method="post">
 				
 				<!-- 質問1 -->
-				<section class="question" th:each="entry : ${map}">
+				<div class="question" th:each="entry : ${map}">
 					
 					<h2 class="question-title">
 						<span th:text="${entry.key.body}">質問 1</span>
@@ -56,31 +56,29 @@
 					
 					<div class="choices">
 	
-						<label class="choice" th:each="choice : ${entry.value}">
+						<label class="choice" th:each="choice, iterStat : ${entry.value}">
 							<input type="radio"
-									th:fieald="*{selectedChoiceIds}"
+									th:fieald="*{selects[__${entry.key.id}__]}"
 									th:value="${choice.id}" requried />
 							<span th:text="${choice.body}">A</span>
 						</label>
 					</div>
 	
-				</section>
+				</div>
 				
+				<!-- 診断ボタン -->
+				<div class="button-area">
+
+					<button type="submit"
+							class="diagnosis-button">
+						診断する
+					</button>
+
+				</div>
 			</form>
 			
-
-			<!-- 診断ボタン -->
-			<div class="button-area">
-
-				<button type="submit"
-						class="diagnosis-button">
-					診断する
-				</button>
-
-			</div>
-
 		</main>
-
+		
 		<footer class="footer">
 
 			<a

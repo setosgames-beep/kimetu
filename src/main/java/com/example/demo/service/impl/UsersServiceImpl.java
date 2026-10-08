@@ -30,11 +30,28 @@ public class UsersServiceImpl implements UsersService  {
 		return userMapper.findAll();
 	}
 
+<<<<<<< HEAD
 	@Override
 	public Users getUserById(long id) {
 		return userMapper.findById(id);
 	}
+=======
+    @Override
+    public void saveUser(Users user) {
+        userMapper.insert(user);
+    }
+    
+    @Override
+    public void updateUser(Users user) {
+        userMapper.update(user);
+    }
+    
+    /** ユーザー一覧を診断結果付きで取得 */
+    @Override
+    public List<UserEditForm> getUserList() {
+>>>>>>> refs/heads/master
 
+<<<<<<< HEAD
 	@Override
 	public void saveUser(Users user) {
 		userMapper.insert(user);
@@ -86,10 +103,49 @@ public class UsersServiceImpl implements UsersService  {
 		// その後ユーザーを削除
 		userMapper.deleteById(id);
 	}
+=======
+        List<Users> users = userMapper.findAll();
+>>>>>>> refs/heads/master
 
 
 
 
 
+<<<<<<< HEAD
+=======
+                // 最新の診断結果を取得
+                Diagnosis_results latestResult = results.get(0);
+
+                // キャラクターIDからキャラクター情報を取得
+                Characters character =
+                        characterMapper.findById(latestResult.getCharacterId());
+
+
+                if (character != null) {
+                    form.setDiagnosisResult(
+                            character.getFamilyName() + character.getFirstName()
+                    );
+                }
+            }
+
+            return form;
+
+        }).toList();
+    }
+
+    /** ユーザー削除 */
+    @Override
+    public void deleteUser(long id) {
+
+        // 先に診断結果を削除
+        diagnosisResultsMapper.deleteByUserId(id);
+
+        // その後ユーザーを削除
+        userMapper.deleteById(id);
+    }
+	
+
+	
+>>>>>>> refs/heads/master
 
 }
