@@ -22,5 +22,6 @@ public interface UsersService {
 
     /** ユーザーを削除 */
 
-    void deleteUser(long id);
+void deleteUser(long id);
+
 }

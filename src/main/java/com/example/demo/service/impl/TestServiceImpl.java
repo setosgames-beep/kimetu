@@ -58,6 +58,50 @@ public class TestServiceImpl implements TestService {
 			return null;
 		}
 		
+<<<<<<< HEAD
+		 Map<Integer, Integer> scoreMap = new HashMap<>();
+
+	        // 選択された選択肢を確認
+		 for (Integer choiceId : selectedChoiceIds) {
+
+			    if (choiceId == null) {
+			        continue;
+			    }
+
+			    Choices choice = choiceMapper.findById(choiceId);
+
+			    if (choice != null) {
+
+			        int characterId = choice.getCharacterId();
+
+			        scoreMap.put(
+			            characterId,
+			            scoreMap.getOrDefault(characterId, 0) + 1
+			        );
+	            }
+	        }
+
+	        // 有効な選択肢がなかった場合
+	        if (scoreMap.isEmpty()) {
+	            return null;
+	        }
+
+	        // 最も得票数が多いキャラクターIDを取得
+	        int resultCharacterId = -1;
+	        int maxScore = -1;
+
+	        for (Map.Entry<Integer, Integer> entry : scoreMap.entrySet()) {
+
+	            if (entry.getValue() > maxScore) {
+	                resultCharacterId = entry.getKey();
+	                maxScore = entry.getValue();
+	            }
+	        }
+
+	        // キャラクターIDから診断結果を取得
+	        return characterMapper.findById(resultCharacterId);
+	    }
+=======
 		// キャラクターIDとその獲得ポイントを記録するマップ
 		// Key: characters_id, Value: 獲得ポイント
 		Map<Integer, Integer> scoreMap = new HashMap<>();
@@ -93,4 +137,5 @@ public class TestServiceImpl implements TestService {
 	}
 	
 	
+>>>>>>> refs/heads/master
 }
