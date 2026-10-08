@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.Choices;
@@ -16,17 +15,17 @@ import com.example.demo.repository.DiagnosisResultsMapper;
 import com.example.demo.repository.QuestionMapper;
 import com.example.demo.service.DiagnosisService;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class DiagnosisServiceImpl implements DiagnosisService {
-
-	@Autowired
-	private QuestionMapper questionMapper;
-
-	@Autowired
-	private ChoiceMapper choiceMapper;
-
-	@Autowired
-	private DiagnosisResultsMapper resultMapper;
+	
+	private final QuestionMapper questionMapper;
+	
+	private final ChoiceMapper choiceMapper;
+	
+	private final DiagnosisResultsMapper resultMapper;
 
 	@Override
 	public int diagnose(List<Integer> choiceIds) {
@@ -37,12 +36,12 @@ public class DiagnosisServiceImpl implements DiagnosisService {
 
 		// 選択肢ID → キャラクターID の対応表
 		Map<Integer, Integer> choiceToCharacter = new HashMap<>();
-		for (Questions question : questionMapper.findAllOrderByDisplayOrder()) {
+		for (Questions question : questionMapper.findAll()) {
 			int questionId = Math.toIntExact(question.getId());
 			for (Choices choice : choiceMapper.findByQuestionId(questionId)) {
 				choiceToCharacter.put(
 						Math.toIntExact(choice.getId()),
-						Math.toIntExact(choice.getCharacter_id()));
+						Math.toIntExact(choice.getCharacterId()));
 			}
 		}
 

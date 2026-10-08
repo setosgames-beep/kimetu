@@ -4,27 +4,27 @@
 
     <select id="findAll" resultType="com.example.demo.entity.Users">
         <!-- 全ユーザーを取得（表示用） -->
-        SELECT id, username, created_at AS createdAt
+        SELECT id, name, body, created_at AS createdAt
         FROM users
     </select>
 
     <select id="findById" resultType="com.example.demo.entity.Users">
         <!-- IDでユーザーを1件取得（表示用） -->
-        SELECT id, username, created_at AS createdAt
+        SELECT id, name, body, created_at AS createdAt
         FROM users
         WHERE id = #{id}
     </select>
 
     <insert id="insert" parameterType="com.example.demo.entity.Users">
         <!-- ユーザーを新規登録（登録用） -->
-        INSERT INTO users (username)
-        VALUES (#{username})
+        INSERT INTO users (username,body)
+        VALUES (#{username},#{body})
     </insert>
-
+	
     <update id="update" parameterType="com.example.demo.entity.Users">
         <!-- ユーザー情報の更新（編集用） -->
         UPDATE users
-        SET username = #{username}
+        SET username = #{username},body = #{body}
         WHERE id = #{id}
     </update>
 
