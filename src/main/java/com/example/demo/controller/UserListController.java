@@ -17,20 +17,57 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class UserListController {
 
-    private final UsersService usersService;
+	private final UsersService usersService;                       // ③（仮）
+	private final DiagnosisResultsService diagnosisResultsService;
+	private final CharacterService characterService;
 
-    // GET /users → ユーザー一覧
-    @GetMapping("/users")
-    public String list(Model model) {
-        List<UserEditForm> users = usersService.getAllUsers();
-        model.addAttribute("users", users);
-        return "diagnosis/users";
-    }
+	// GET /users → ユーザー一覧
+	@GetMapping("/users")
+	public String list(Model model) {
+		List<Users> users = usersService.getAllUsers();           // ③（仮）
 
-    // POST /users/{id}/delete → 削除して一覧に戻る
-    @PostMapping("/users/{id}/delete")
-    public String delete(@PathVariable long id) {
-        usersService.deleteUser(id);
-        return "redirect:/users";
-    }
+		// userId → 最新の診断結果のキャラクター名
+		Map<Long, String> characterNames = new HashMap<>();
+		for (Users u : users) {
+			List<Diagnosis_results> results =
+					diagnosisResultsService.getDiagnosisResultsByUserId(u.getId());
+			if (!results.isEmpty()) {
+				Characters c = characterService.getCharacterById(results.get(0).getCharacterId());
+				characterNames.put(u.getId(), c.getFamilyName() + " " + c.getFirstName());
+			}
+		}
+
+		model.addAttribute("users", users);
+		model.addAttribute("characterNames", characterNames);
+		return "diagnosis/users";
+	}
+
+	// POST /users/{id}/delete → 削除して一覧に戻る
+	@PostMapping("/users/{id}/delete")
+	public String delete(@PathVariable long id) {
+		usersService.deleteUser(id);                              // ③（仮）
+		return "redirect:/users";
+	}
+	
+	// GET /users/{id}/edit → ユーザー編集画面
+	@GetMapping("/users/{id}/edit")
+	public String editUser(@PathVariable long id, Model model) {
+
+	    Users user = usersService.getUserById(id);
+
+	    model.addAttribute("user", user);
+
+	    return "user/user-edit";
+	}
+	
+	// POST /users/{id}/edit → ユーザー情報を更新
+	@PostMapping("/users/{id}/edit")
+	public String updateUser(@PathVariable long id, Users user) {
+
+	    user.setId(id);
+
+	    usersService.updateUser(user);
+
+	    return "redirect:/users";
+	}
 }
