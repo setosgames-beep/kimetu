@@ -86,6 +86,11 @@ public class TestServiceImpl implements TestService {
 		
 		// 3.最多得点のキャラクターの情報をDBから取得、して返す
 		if (bestCharacterId != null) {
+			Characters testchar = characterMapper.findById(bestCharacterId);
+			if (testchar == null) {
+				System.out.println("ヌルヌルヌルヌル");
+			}
+			System.out.println(testchar.getFirstName());
 			return characterMapper.findById(bestCharacterId);
 		}
 		
