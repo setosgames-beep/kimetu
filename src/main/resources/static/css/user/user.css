@@ -492,3 +492,126 @@ body {
 .screen {
     border-radius: 4px;
 }
+
+/* ユーザー一覧タイトル */
+.user-list-title {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.user-list-title h1 {
+    margin: 0;
+}
+
+.user-list-title img {
+    width: 150px;
+    height: 170px;
+    object-fit: contain;
+}
+.user-list-title p {
+    position: absolute;
+    top: -20px;
+    right: 0;
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: #b3432b;
+}
+
+/* 登録するボタン：義勇 */
+.register-button {
+    position: relative;
+    width: 220px;
+    height: 60px;
+    margin: 30px auto 0;
+    padding: 0;
+    background-image: url("../../images/diagnosis/test/giyu.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #ffffff;
+    border: 1px solid #d8d2c6;
+    border-radius: 6px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.register-button span {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    padding: 8px 18px;
+    background: rgba(255, 255, 255, .85);
+    color: #1c1a1e;
+    font-weight: 600;
+}
+
+/* 登録する：義勇の看板 */
+.register-button {
+    position: relative;
+    display: block;
+    width: 280px;
+    height: 180px;
+    margin: 20px auto 0;
+    padding: 0;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    cursor: pointer;
+}
+
+.register-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    margin: 0;
+}
+
+.register-button span {
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #1c1a1e;
+    font-size: 18px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* TOPに戻る：しのぶの看板 */
+.top-button {
+    position: relative;
+    display: block;
+    width: 280px;
+    height: 180px;
+    margin: 20px auto 0;
+    padding: 0 !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    cursor: pointer;
+    overflow: visible;
+    text-decoration: none;
+}
+
+.top-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    margin: 0;
+}
+
+.top-button span {
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #1c1a1e;
+    font-size: 18px;
+    font-weight: bold;
+    white-space: nowrap;
+}
