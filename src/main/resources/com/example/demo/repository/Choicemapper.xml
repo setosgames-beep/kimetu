@@ -16,4 +16,18 @@
 		WHERE id = #{id}
 	</select>
 	
+		<!-- 有木：最後の質問で、同点になったキャラクターの選択肢を取得する。 -->
+	<!-- 有木：characters_idが指定されたキャラクターIDと一致する選択肢だけ取得する。 -->
+	<select id="findByCharacterId" resultType="com.example.demo.entity.Choices">
+
+		SELECT id, questions_id AS questionId, characters_id AS characterId, body
+
+		FROM choices
+
+		WHERE characters_id = #{characterId}
+
+		ORDER BY id
+
+	</select>
+	
 </mapper>

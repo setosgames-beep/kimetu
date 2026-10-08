@@ -14,7 +14,10 @@ public interface ChoiceMapper {
     /** 【超重要】特定の質問ID(questionId)に紐づく選択肢だけをまとめて取得 */
     List<Choices> findByQuestionId(int questionId);
 
-
+ // 有木：最後の質問で、同点になったキャラクターに対応する選択肢だけ取得する。
+ // 有木：characterIdを使って「このキャラクターの選択肢」をDBから探す。
+ List<Choices> findByCharacterId(int characterId);
+ 
 //    /** IDで選択肢を1件取得 */
      Choices findById(int id);
 //
