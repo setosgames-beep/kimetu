@@ -54,4 +54,26 @@ public class UserListController {
 		usersService.deleteUser(id);                              // ③（仮）
 		return "redirect:/users";
 	}
+	
+	// GET /users/{id}/edit → ユーザー編集画面
+	@GetMapping("/users/{id}/edit")
+	public String editUser(@PathVariable long id, Model model) {
+
+	    Users user = usersService.getUserById(id);
+
+	    model.addAttribute("user", user);
+
+	    return "user/user-edit";
+	}
+	
+	// POST /users/{id}/edit → ユーザー情報を更新
+	@PostMapping("/users/{id}/edit")
+	public String updateUser(@PathVariable long id, Users user) {
+
+	    user.setId(id);
+
+	    usersService.updateUser(user);
+
+	    return "redirect:/users";
+	}
 }

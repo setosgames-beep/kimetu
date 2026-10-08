@@ -133,15 +133,15 @@ body.page-result .result-main::before {
 /* ---------- 5. 左右のレイアウト（左：画像／右：診断結果） ---------- */
 .result-layout {
 	display: flex;
-	gap: 24px;
-	align-items: stretch;             /* 左右の高さをそろえる */
-	width: min(100%, 820px);
+	gap: 28px;
+	align-items: stretch;
+	width: min(100%, 1000px);
 }
 
 /* 左：キャラクター画像（縦長の枠） */
 .result-image {
-	flex: 0 0 38%;                    /* 全体の38%の幅 */
-	aspect-ratio: 4 / 5;              /* 縦長（幅4：高さ5） */
+	flex: 0 0 40%;
+	aspect-ratio: 4 / 5;
 	border-radius: 12px;
 	overflow: hidden;
 	background: #fff;
@@ -216,26 +216,54 @@ body.page-result .result-main::before {
 .btn-sub  { background: #fff; color: #222; border: 1px solid #222; }
 
 /* ---------- 6. フッター：単色の帯、TOPとコピーライトを中央に ---------- */
+/* ---------- フッター ---------- */
+
 body.page-result .footer {
 	display: flex;
-	flex-direction: column;           /* TOP → コピーライトの縦並び */
+	flex-direction: column;
 	align-items: center;
+	justify-content: center;
+
 	width: 100%;
 	box-sizing: border-box;
+
 	margin: 0;
-	padding: 8px 16px;
+	padding: 10px 16px;
+
 	background: #f5f2ec;
 	border-top: 1px solid #ddd;
+
+	text-align: center;
 }
-body.page-result .top-link {
-	padding: 6px 24px;
-	color: #222;
-	font-family: "Zen Antique", serif;
-	font-size: 18px;
+
+
+/* フッターのTOPロゴ */
+body.page-result .footer img {
+	display: block;
+
+	width: auto;
+	height: 40px;
+
+	max-width: 150px;
+
+	object-fit: contain;
+}
+
+
+/* TOPロゴのリンク */
+body.page-result .footer a {
+	display: block;
 	text-decoration: none;
 }
-body.page-result .top-link:hover { opacity: .7; }
-body.page-result .copyright { margin: 4px 0 0; font-size: 11px; color: #666; }
+
+
+/* コピーライト */
+body.page-result .copyright {
+	margin: 4px 0 0;
+
+	font-size: 11px;
+	color: #666;
+}
 
 /* ---------- 7. 画面が狭いとき（スマホ）：上に画像、下に診断結果 ---------- */
 @media (max-width: 640px) {
