@@ -43,10 +43,30 @@
                   th:object="${diagnosisForm}"
                   method="post">
 
+                <div class="question">
+
+                    <h2 class="question-title">
+                        名前を入力してください
+                    </h2>
+
+                    <div class="choices">
+
+                        <input type="text"
+                               th:field="*{name}"
+                               required
+                               maxlength="50"
+                               placeholder="名前を入力">
+
+                    </div>
+
+                </div>
+
                 <div class="question" th:each="entry : ${map}">
 
                     <h2 class="question-title">
+
                         <span th:text="${entry.key.body}">質問 1</span>
+
                     </h2>
 
                     <div class="choices" th:each="choice, iterStat : ${entry.value}">
@@ -70,7 +90,9 @@
 
                     <button type="submit"
                             class="diagnosis-button">
+
                         診断する
+
                     </button>
 
                 </div>
@@ -85,7 +107,9 @@
                 class="top-link"
                 th:href="@{/}"
                 href="index.html">
+
                 TOP
+
             </a>
 
         </footer>
