@@ -39,7 +39,7 @@
 
         <main class="main-column">
 
-            <form th:action="@{/test/diagnosis/submit}"
+            <form th:action="@{/diagnosis/submit}"
                   th:object="${diagnosisForm}"
                   method="post">
 
@@ -69,9 +69,9 @@
 
                     </h2>
 
-                    <div class="choices" th:each="choice, iterStat : ${entry.value}">
+                    <div class="choices">
 
-                        <label class="choice">
+                        <label class="choice" th:each="choice, iterStat : ${entry.value}">
 
                             <input type="radio"
                                    th:field="*{selects[__${entry.key.id}__]}"

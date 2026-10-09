@@ -141,7 +141,7 @@ body    { min-height: 100vh; min-height: 100dvh; }
 
 /* ---------- 大きな画面（PCなど）：ロゴとボタンを大きくする ---------- */
 @media (min-width: 1200px) {
-	.logo { width: 1050px; }          /* ロゴを大きく */
+	.logo { width: 1300px; }          /* ロゴを大きく */
 	.col  { width: 220px; }          /* ボタンを大きく */
 	.link-btn { gap: 20px; }
 }
