@@ -76,19 +76,11 @@ body.page-characters .footer {
    ------------------------------------------------ */
 
    body.page-characters .main-column {
-
        width: 1000px;
-
        min-height: 800px;
-
        margin: 155px auto 80px;
-
-       padding: 55px 60px;
-
+       padding: 0 0;
        box-sizing: border-box;
-
-       background: #f5f2ec !important;
-
    }
 
 
@@ -97,9 +89,10 @@ body.page-characters .footer {
    ------------------------------------------------ */
 
 body.page-characters .question {
-
     margin-bottom: 55px;
-
+	padding: 40px;
+	background: #f5f2ec;
+	border: 1px solid #222;
 }
 
 
@@ -188,7 +181,9 @@ body.page-characters .choice input[type="radio"] {
 /* ------------------------------------------------
    診断ボタン
    ------------------------------------------------ */
-
+.diagnosis-button {
+	text-align: center;
+}
 
 /* ============================================
    ヘッダー・フッター共通の「帯」デザイン
@@ -274,4 +269,9 @@ body.page-characters .top-link:hover {
 	opacity: .7;                            /* マウスを乗せると少し薄く */
 }
 
-
+/* ------------------------------------------------
+   送信ボタン
+   ------------------------------------------------ */
+.submit-button {
+	margin: 50px;
+}
